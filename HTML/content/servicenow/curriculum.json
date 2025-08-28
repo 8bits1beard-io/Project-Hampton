@@ -1,0 +1,277 @@
+{
+  "project": "ServiceNow Analytics Dashboard",
+  "description": "Build a professional Tailwind CSS dashboard that analyzes ServiceNow incident data to provide actionable business insights",
+  "icon": "📈",
+  "skills_learned": [
+    "Tailwind CSS",
+    "Data Visualization",
+    "ServiceNow APIs",
+    "Chart.js / D3.js",
+    "Data Analysis",
+    "Business Intelligence",
+    "Performance Metrics",
+    "Incident Management"
+  ],
+  "final_deliverable": "A production-ready dashboard that helps IT teams identify patterns, reduce MTTR (Mean Time To Resolution), and prevent future incidents",
+  "weeks": {
+    "week1": {
+      "title": "Foundation & ServiceNow Basics",
+      "description": "Set up Tailwind CSS and understand ServiceNow incident data structure",
+      "modules": [
+        {
+          "title": "Project Setup & Tailwind CSS",
+          "topics": ["Tailwind installation", "Dashboard layout planning", "Component structure"]
+        },
+        {
+          "title": "Understanding ServiceNow Data",
+          "topics": ["Incident fields", "Priority levels", "Categories", "Assignment groups"]
+        },
+        {
+          "title": "Data Import & Parsing",
+          "topics": ["CSV/JSON parsing", "Data cleaning", "Sample data creation"]
+        },
+        {
+          "title": "Basic Dashboard Layout",
+          "topics": ["Grid system", "Responsive design", "Dark mode setup"]
+        },
+        {
+          "title": "Week 1 Project",
+          "topics": ["Create dashboard shell with navigation and basic stats cards"]
+        }
+      ]
+    },
+    "week2": {
+      "title": "Building Core Metrics Components",
+      "description": "Create key performance indicator (KPI) cards and basic visualizations",
+      "modules": [
+        {
+          "title": "KPI Cards Design",
+          "topics": ["Total incidents", "Open vs Closed", "Average resolution time", "Critical incidents"]
+        },
+        {
+          "title": "Trend Indicators",
+          "topics": ["Week-over-week changes", "Sparklines", "Up/down arrows", "Color coding"]
+        },
+        {
+          "title": "Priority Distribution",
+          "topics": ["Priority breakdown", "Donut charts", "Legend design", "Interactive tooltips"]
+        },
+        {
+          "title": "Status Overview",
+          "topics": ["Status workflow", "Progress bars", "Stage indicators"]
+        },
+        {
+          "title": "Week 2 Project",
+          "topics": ["Complete metrics dashboard with 8-10 KPI cards"]
+        }
+      ]
+    },
+    "week3": {
+      "title": "Time-Based Analytics",
+      "description": "Implement time series analysis and trending visualizations",
+      "modules": [
+        {
+          "title": "Incident Timeline",
+          "topics": ["Line charts", "Date range picker", "Time granularity"]
+        },
+        {
+          "title": "Peak Hours Analysis",
+          "topics": ["Heatmaps", "Hour/day distribution", "Pattern identification"]
+        },
+        {
+          "title": "Resolution Time Trends",
+          "topics": ["MTTR tracking", "SLA compliance", "Aging analysis"]
+        },
+        {
+          "title": "Historical Comparisons",
+          "topics": ["Period comparisons", "YoY/MoM analysis", "Benchmarking"]
+        },
+        {
+          "title": "Week 3 Project",
+          "topics": ["Time-based dashboard with multiple chart types"]
+        }
+      ]
+    },
+    "week4": {
+      "title": "Category & Assignment Analysis",
+      "description": "Deep dive into incident categorization and team performance",
+      "modules": [
+        {
+          "title": "Category Breakdown",
+          "topics": ["Category trees", "Subcategory analysis", "Treemaps", "Sankey diagrams"]
+        },
+        {
+          "title": "Assignment Group Performance",
+          "topics": ["Team metrics", "Workload distribution", "Performance ranking"]
+        },
+        {
+          "title": "Service Impact Analysis",
+          "topics": ["Affected services", "Business impact", "Dependency mapping"]
+        },
+        {
+          "title": "Root Cause Patterns",
+          "topics": ["Common issues", "Recurring incidents", "Problem management"]
+        },
+        {
+          "title": "Week 4 Project",
+          "topics": ["Category and assignment analytics dashboard"]
+        }
+      ]
+    },
+    "week5": {
+      "title": "Advanced Visualizations",
+      "description": "Implement complex data visualizations and interactive features",
+      "modules": [
+        {
+          "title": "Geographic Distribution",
+          "topics": ["Location mapping", "Regional analysis", "Site comparisons"]
+        },
+        {
+          "title": "Correlation Analysis",
+          "topics": ["Change vs Incident correlation", "Pattern detection", "Scatter plots"]
+        },
+        {
+          "title": "Predictive Indicators",
+          "topics": ["Trend forecasting", "Anomaly detection", "Alert thresholds"]
+        },
+        {
+          "title": "Custom Drill-Downs",
+          "topics": ["Interactive filtering", "Detail views", "Export functionality"]
+        },
+        {
+          "title": "Week 5 Project",
+          "topics": ["Advanced analytics with 3+ complex visualizations"]
+        }
+      ]
+    },
+    "week6": {
+      "title": "Real-Time Updates & API Integration",
+      "description": "Connect to live data sources and implement real-time updates",
+      "modules": [
+        {
+          "title": "ServiceNow API Basics",
+          "topics": ["REST API", "Authentication", "Rate limiting", "Error handling"]
+        },
+        {
+          "title": "Live Data Streaming",
+          "topics": ["WebSockets", "Polling strategies", "Data refresh", "Caching"]
+        },
+        {
+          "title": "Real-Time Notifications",
+          "topics": ["Alert system", "Priority escalations", "Toast notifications"]
+        },
+        {
+          "title": "Auto-Refresh Logic",
+          "topics": ["Update intervals", "Partial updates", "Performance optimization"]
+        },
+        {
+          "title": "Week 6 Project",
+          "topics": ["Implement live data connection with auto-refresh"]
+        }
+      ]
+    },
+    "week7": {
+      "title": "User Experience & Interactivity",
+      "description": "Polish the dashboard with advanced UX features and interactivity",
+      "modules": [
+        {
+          "title": "Advanced Filtering",
+          "topics": ["Multi-select filters", "Search functionality", "Saved filters", "Quick filters"]
+        },
+        {
+          "title": "Custom Reports",
+          "topics": ["Report builder", "Template system", "Scheduling", "Email delivery"]
+        },
+        {
+          "title": "Export & Sharing",
+          "topics": ["PDF export", "Excel export", "Share links", "Embedding"]
+        },
+        {
+          "title": "Mobile Optimization",
+          "topics": ["Responsive charts", "Touch interactions", "Mobile navigation"]
+        },
+        {
+          "title": "Week 7 Project",
+          "topics": ["Complete UX overhaul with all interactive features"]
+        }
+      ]
+    },
+    "week8": {
+      "title": "Deployment & Business Value",
+      "description": "Deploy the dashboard and demonstrate business impact",
+      "modules": [
+        {
+          "title": "Performance Optimization",
+          "topics": ["Code splitting", "Lazy loading", "Bundle optimization", "CDN setup"]
+        },
+        {
+          "title": "Security & Access Control",
+          "topics": ["Authentication", "Role-based access", "Data masking", "Audit logging"]
+        },
+        {
+          "title": "Documentation & Training",
+          "topics": ["User guide", "Admin guide", "Video tutorials", "FAQ"]
+        },
+        {
+          "title": "Business Presentation",
+          "topics": ["ROI calculation", "Success metrics", "Case studies", "Stakeholder demo"]
+        },
+        {
+          "title": "Final Project",
+          "topics": ["Production-ready dashboard with full documentation"]
+        }
+      ]
+    }
+  },
+  "learning_outcomes": [
+    "Master Tailwind CSS for professional dashboard development",
+    "Understand IT service management metrics and KPIs",
+    "Build complex data visualizations with Chart.js/D3.js",
+    "Implement real-time data updates and API integrations",
+    "Create actionable insights from incident data",
+    "Develop production-ready enterprise applications",
+    "Present technical solutions to business stakeholders"
+  ],
+  "sample_metrics": {
+    "kpis": [
+      "Total Incidents (Monthly)",
+      "Mean Time to Resolution (MTTR)",
+      "First Call Resolution Rate",
+      "SLA Compliance Percentage",
+      "Incident Backlog",
+      "Critical Incident Count",
+      "Reopened Incidents",
+      "Customer Satisfaction Score"
+    ],
+    "visualizations": [
+      "Incident trend line chart",
+      "Priority distribution donut chart",
+      "Assignment group performance bar chart",
+      "Category breakdown treemap",
+      "Resolution time histogram",
+      "Peak hours heatmap",
+      "Geographic incident map",
+      "SLA compliance gauge"
+    ]
+  },
+  "sample_data_structure": {
+    "incident": {
+      "number": "INC0012345",
+      "short_description": "Email service down",
+      "priority": "2 - High",
+      "state": "In Progress",
+      "assignment_group": "Email Support",
+      "assigned_to": "John Smith",
+      "created": "2024-01-15T08:30:00Z",
+      "resolved": null,
+      "category": "Software",
+      "subcategory": "Email",
+      "impact": "2 - Medium",
+      "urgency": "2 - Medium",
+      "location": "New York",
+      "affected_ci": "Exchange Server 01",
+      "resolution_notes": "",
+      "sla_due": "2024-01-15T12:30:00Z"
+    }
+  }
+}

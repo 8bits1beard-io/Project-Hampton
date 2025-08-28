@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-tool="claude-code">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Hampton - Learn AI-Assisted Development</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components/navigation.css">
+    <link rel="stylesheet" href="css/components/notifications.css">
+    <link rel="stylesheet" href="css/components/dashboard.css">
+    <link rel="stylesheet" href="css/components/modules.css">
+    
+    <!-- Additional styles only for components not in CSS files yet -->
+    <style>
+
+        /* Project Selection Styles */
+        .project-selection-container {
+            padding: var(--space-xl);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .selection-header {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .selection-header h1 {
+            font-size: var(--font-size-3xl);
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: var(--font-size-lg);
+        }
+
+        .project-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .project-card {
+            background: var(--surface-bg);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            text-align: center;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .project-icon {
+            font-size: 4rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            justify-content: center;
+            margin: var(--space-md) 0;
+        }
+
+        .skill-tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+        }
+
+        .progress-code-section {
+            background: var(--surface-bg);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+
+        .code-input-group {
+            display: flex;
+            gap: var(--space-md);
+            max-width: 500px;
+            margin: var(--space-lg) auto 0;
+        }
+
+        .progress-code-input {
+            flex: 1;
+            padding: var(--space-md);
+            border: 2px solid var(--surface-border);
+            border-radius: var(--radius-md);
+            font-family: monospace;
+            font-size: var(--font-size-md);
+            text-transform: uppercase;
+        }
+
+        /* Week Navigation */
+        .week-navigation {
+            background: var(--surface-bg);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .week-nav-container {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+        }
+
+        .week-nav-item {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-md);
+            background: var(--cloud-white);
+            border: 2px solid var(--surface-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .week-nav-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .week-nav-item.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .week-nav-item.completed {
+            background: #10B981;
+            color: white;
+            border-color: #10B981;
+        }
+
+        .week-nav-item.locked {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .week-nav-item.locked:hover {
+            transform: none;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: var(--surface-bg);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            max-width: 500px;
+            width: 90%;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .progress-code-display {
+            background: var(--cloud-white);
+            border: 2px dashed var(--primary-color);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            margin: var(--space-lg) 0;
+            font-family: monospace;
+            font-size: var(--font-size-lg);
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        /* Loading State */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--surface-border);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-header">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">PH</div>
+                <span>Project: Hampton</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#" onclick="hamptonApp.navigate('home')">Home</a></li>
+                <li><a href="#" onclick="hamptonApp.navigate('dashboard')">Dashboard</a></li>
+                <li><a href="#" onclick="hamptonApp.navigate('achievements')">Achievements</a></li>
+                <li><a href="#" onclick="hamptonApp.showProgress()">Progress</a></li>
+                
+                <li>
+                    <div class="tool-switcher">
+                        <button class="tool-option active" data-tool="claude-code">Claude Code</button>
+                        <button class="tool-option" data-tool="code-puppy">Code Puppy</button>
+                    </div>
+                </li>
+                
+                <li>
+                    <label class="theme-toggle-switch">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="slider">
+                            <span class="icon">☀️</span>
+                            <span class="icon">🌙</span>
+                        </span>
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main App Container -->
+    <div id="app">
+        <main id="main-content">
+            <div class="loading">
+                <div class="spinner"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- JavaScript Modules -->
+    <script type="module">
+        // Import all modules
+        import { progressTracker } from './js/modules/progressTracker.js';
+        import { gamification } from './js/modules/gamification.js';
+        import { CourseContent } from './js/modules/courseContent.js';
+        import { UIController } from './js/modules/uiController.js';
+        import { ThemeManager } from './js/modules/themeManager.js';
+        import { NotificationSystem } from './js/modules/notifications.js';
+        import { titleSystem } from './js/modules/titleSystem.js';
+        import { soundEffects } from './js/modules/soundEffects.js';
+        import { animations } from './js/modules/animations.js';
+        import { saveIndicator } from './js/modules/saveIndicator.js';
+
+        // Main App Class
+        class HamptonApp {
+            constructor() {
+                this.progressTracker = progressTracker;
+                this.gamification = gamification;
+                this.courseContent = new CourseContent();
+                this.ui = new UIController();
+                this.themeManager = new ThemeManager();
+                this.notifications = new NotificationSystem();
+                this.titleSystem = titleSystem;
+                this.soundEffects = soundEffects;
+                this.animations = animations;
+                this.saveIndicator = saveIndicator;
+                
+                this.currentView = 'home';
+                this.selectedProject = null;
+            }
+
+            async init() {
+                console.log('🚀 Initializing Project: Hampton v0.0.2');
+                
+                // Initialize theme
+                this.themeManager.init();
+                
+                // Load user progress
+                const userState = this.progressTracker.state;
+                
+                // Initialize UI
+                this.ui.init();
+                
+                // Initialize notifications
+                this.notifications.init();
+                
+                // Initialize save indicator
+                this.saveIndicator.init();
+                
+                // Set up event listeners
+                this.setupEventListeners();
+                
+                // Load content
+                await this.loadContent();
+                
+                // Check for saved progress
+                if (userState.selectedProject) {
+                    this.selectedProject = userState.selectedProject;
+                    this.showDashboard();
+                } else {
+                    this.showProjectSelection();
+                }
+                
+                // Show welcome message
+                this.notifications.show('Welcome to Project: Hampton!', 'info');
+            }
+
+            setupEventListeners() {
+                // Module completion
+                document.addEventListener('moduleStarted', (e) => {
+                    console.log('Module started:', e.detail);
+                });
+
+                document.addEventListener('exerciseCompleted', (e) => {
+                    this.handleExerciseComplete(e.detail);
+                });
+            }
+
+            async loadContent() {
+                try {
+                    // Load Week 1 content (we'll load others as needed)
+                    await this.courseContent.loadWeek(1);
+                    console.log('✅ Week 1 content loaded');
+                } catch (error) {
+                    console.error('Failed to load course content:', error);
+                }
+            }
+
+            navigate(view) {
+                switch(view) {
+                    case 'home':
+                        this.showProjectSelection();
+                        break;
+                    case 'dashboard':
+                        if (this.selectedProject) {
+                            this.showDashboard();
+                        } else {
+                            this.showProjectSelection();
+                        }
+                        break;
+                    case 'achievements':
+                        this.ui.renderAchievements(this.progressTracker.state);
+                        break;
+                    default:
+                        console.log('Navigate to:', view);
+                }
+            }
+
+            showProjectSelection() {
+                this.currentView = 'project-selection';
+                this.ui.renderProjectSelection();
+            }
+
+            showDashboard() {
+                this.currentView = 'dashboard';
+                const userState = this.progressTracker.state;
+                const weekContent = this.courseContent.getWeek(userState.currentWeek || 1);
+                
+                this.ui.renderDashboard({
+                    user: userState,
+                    currentWeek: weekContent,
+                    achievements: this.gamification.achievements,
+                    dailyChallenges: this.gamification.dailyChallenges
+                });
+            }
+
+            selectProject(projectType) {
+                // Save project selection
+                this.progressTracker.selectProject(projectType);
+                this.selectedProject = projectType;
+                
+                // Show success message
+                this.notifications.show(
+                    `Great choice! You've selected the ${projectType} project path.`,
+                    'success'
+                );
+                
+                // Navigate to dashboard
+                this.showDashboard();
+            }
+
+            startModule(week, module) {
+                const canAccess = this.progressTracker.canAccessModule(week, module);
+                
+                if (!canAccess) {
+                    this.notifications.show(
+                        'Complete previous modules first!',
+                        'warning'
+                    );
+                    return;
+                }
+
+                // Start the module
+                const moduleData = this.courseContent.startModule(week, module);
+                
+                // Show module content
+                this.ui.renderModuleContent(moduleData);
+                
+                this.notifications.show(
+                    `Starting: ${moduleData.title}`,
+                    'info'
+                );
+            }
+
+            completeModule(week, module) {
+                // Check if module can be completed
+                const isComplete = this.courseContent.isModuleComplete(week, module);
+                
+                if (!isComplete) {
+                    this.notifications.show(
+                        'Complete all exercises first!',
+                        'warning'
+                    );
+                    this.soundEffects.playErrorSound();
+                    return;
+                }
+
+                // Mark as complete in progress tracker
+                const oldLevel = this.progressTracker.state.level;
+                const result = this.progressTracker.completeModule(week, module);
+                const newLevel = this.progressTracker.state.level;
+                
+                if (result) {
+                    // Play completion effects
+                    this.soundEffects.playCompleteSound();
+                    this.animations.moduleCompleteAnimation();
+                    
+                    this.notifications.show(
+                        'Module completed! +100 XP',
+                        'success'
+                    );
+                    
+                    // Check for level up
+                    if (newLevel > oldLevel) {
+                        this.handleLevelUp(oldLevel, newLevel);
+                    }
+                    
+                    // Check for achievements
+                    this.checkAchievements();
+                    
+                    // Check if week is complete
+                    const weekState = this.progressTracker.state.weekProgress[`week${week}`];
+                    if (weekState && weekState.completed) {
+                        this.animations.confetti();
+                        this.soundEffects.playVictoryTheme();
+                        this.notifications.show(
+                            `🎉 Week ${week} Complete! Amazing progress!`,
+                            'achievement',
+                            5000
+                        );
+                    }
+                    
+                    // Auto-save
+                    this.saveIndicator.save();
+                    
+                    // Refresh dashboard
+                    this.showDashboard();
+                }
+            }
+
+            handleExerciseComplete(data) {
+                // Award XP
+                const oldLevel = this.progressTracker.state.level;
+                this.progressTracker.addXP(data.xp);
+                const newLevel = this.progressTracker.state.level;
+                
+                // Play sound and animation
+                this.soundEffects.playXPSound();
+                this.notifications.xp(data.xp);
+                
+                // Check for level up
+                if (newLevel > oldLevel) {
+                    this.handleLevelUp(oldLevel, newLevel);
+                }
+                
+                // Check if module is now complete
+                const isComplete = this.courseContent.isModuleComplete(data.week, data.module);
+                if (isComplete) {
+                    this.notifications.show(
+                        'All exercises complete! You can now complete the module.',
+                        'success'
+                    );
+                    this.soundEffects.playSuccessSound();
+                }
+                
+                // Auto-save
+                this.saveIndicator.save();
+            }
+
+            handleLevelUp(oldLevel, newLevel) {
+                // Get new title
+                const titleData = this.titleSystem.formatTitleDisplay(newLevel);
+                
+                // Play level up effects
+                this.soundEffects.playLevelUpSound();
+                this.animations.levelUpAnimation();
+                
+                // Show title notification
+                this.notifications.show(
+                    `Level ${newLevel}! New Title: ${titleData.title}`,
+                    'levelup',
+                    5000
+                );
+                
+                // Update UI
+                this.ui.updateXPDisplay(this.progressTracker.state.xp, newLevel);
+            }
+
+            checkAchievements() {
+                const userState = this.progressTracker.state;
+                const achievements = this.gamification.achievements;
+                
+                achievements.forEach(achievement => {
+                    if (this.gamification.checkAchievement(achievement.id, userState)) {
+                        this.progressTracker.unlockAchievement(
+                            achievement.id,
+                            achievement.name,
+                            achievement.description
+                        );
+                        
+                        this.notifications.showAchievement(achievement);
+                    }
+                });
+            }
+
+            saveProgress() {
+                const code = this.progressTracker.generateProgressCode();
+                
+                // Copy to clipboard
+                navigator.clipboard.writeText(code).then(() => {
+                    this.notifications.show(
+                        'Progress code copied to clipboard!',
+                        'success'
+                    );
+                });
+                
+                // Show in modal
+                this.ui.showProgressCode(code);
+            }
+
+            loadProgress(code) {
+                if (!code) {
+                    this.notifications.show('Please enter a progress code', 'warning');
+                    return;
+                }
+
+                const result = this.progressTracker.loadFromCode(code);
+                
+                if (result.success) {
+                    this.notifications.show(
+                        'Progress loaded successfully!',
+                        'success'
+                    );
+                    
+                    // Refresh UI
+                    this.selectedProject = result.state.selectedProject;
+                    this.showDashboard();
+                } else {
+                    this.notifications.show(
+                        `Invalid progress code: ${result.error}`,
+                        'error'
+                    );
+                }
+            }
+
+            showProgress() {
+                const code = this.progressTracker.generateProgressCode();
+                this.ui.showProgressCode(code);
+            }
+
+            // Debug helpers
+            resetProgress() {
+                if (confirm('Reset all progress? This cannot be undone!')) {
+                    this.progressTracker.resetProgress();
+                    this.selectedProject = null;
+                    this.showProjectSelection();
+                    this.notifications.show('Progress reset', 'info');
+                }
+            }
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            window.hamptonApp = new HamptonApp();
+            window.hamptonApp.init();
+            
+            // Debug helpers
+            window.resetProgress = () => window.hamptonApp.resetProgress();
+            window.startModule = (w, m) => window.hamptonApp.startModule(w, m);
+            window.completeExercise = (w, m, e) => {
+                const result = window.hamptonApp.courseContent.completeExercise(w, m, e);
+                if (result) {
+                    window.hamptonApp.handleExerciseComplete({
+                        week: w,
+                        module: m,
+                        exerciseId: e,
+                        xp: 25
+                    });
+                }
+                return result;
+            };
+        });
+    </script>
+</body>
+</html>

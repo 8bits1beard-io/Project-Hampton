@@ -1,0 +1,67 @@
+# Project Hampton Python Dependencies
+# Install with: pip install -r scripts/requirements.txt
+
+# Core utilities
+click==8.1.7          # CLI interface
+pyyaml==6.0.1        # YAML configuration
+python-dotenv==1.0.0 # Environment variables
+
+# Data processing
+pandas==2.1.4        # Data analysis
+numpy==1.26.2        # Numerical operations
+jsonschema==4.20.0   # JSON validation
+
+# Content generation
+jinja2==3.1.2        # Template engine
+markdown==3.5.1      # Markdown processing
+pygments==2.17.2     # Syntax highlighting
+
+# Testing and validation
+pytest==7.4.3        # Testing framework
+pytest-cov==4.1.0    # Coverage reporting
+black==23.12.0       # Code formatting
+flake8==6.1.0        # Linting
+
+# Web and API
+requests==2.31.0     # HTTP requests
+beautifulsoup4==4.12.2  # HTML parsing
+lxml==4.9.3          # XML processing
+
+# Analytics and visualization
+matplotlib==3.8.2    # Plotting
+seaborn==0.13.0     # Statistical graphics
+plotly==5.18.0      # Interactive plots
+
+# File handling
+openpyxl==3.1.2     # Excel files
+pypdf==3.17.2       # PDF processing
+pillow==10.1.0      # Image processing
+
+# Scheduling and automation
+schedule==1.2.0     # Task scheduling
+watchdog==3.0.0     # File monitoring
+
+# Database (optional)
+sqlite3             # Built-in
+sqlalchemy==2.0.23  # ORM
+
+# Deployment
+python-minifier==2.9.0  # Code minification
+csscompressor==0.9.5    # CSS compression
+jsmin==3.0.1           # JavaScript minification
+
+# AI/ML (optional)
+openai==1.5.0       # OpenAI API
+anthropic==0.8.1    # Anthropic API
+tiktoken==0.5.2     # Token counting
+
+# Utilities
+rich==13.7.0        # Rich terminal output
+tqdm==4.66.1        # Progress bars
+colorama==0.4.6     # Colored terminal output
+tabulate==0.9.0     # Table formatting
+
+# Documentation
+sphinx==7.2.6       # Documentation generation
+mkdocs==1.5.3       # Documentation site
+pydoc-markdown==4.8.2  # API documentation

@@ -1,0 +1,1095 @@
+{
+  "format": "30-day intensive",
+  "description": "Complete project-based learning in one month with daily lessons",
+  "schedule": {
+    "daily_commitment": "2-3 hours",
+    "total_days": 30,
+    "practice_days": [7, 14, 21, 28],
+    "final_project_days": [29, 30]
+  },
+  "projects": {
+    "tictactoe": {
+      "title": "Multiplayer Tic-Tac-Toe Game",
+      "days": {
+        "day1": {
+          "title": "Environment Setup & Project Planning",
+          "lessons": [
+            "Setting up development environment",
+            "Understanding the project scope",
+            "Creating project structure",
+            "Git repository initialization"
+          ],
+          "deliverable": "Complete project setup with folder structure",
+          "xp": 150
+        },
+        "day2": {
+          "title": "HTML Game Board Creation",
+          "lessons": [
+            "HTML5 structure for game board",
+            "CSS Grid for layout",
+            "Responsive design principles",
+            "Mobile-first approach"
+          ],
+          "deliverable": "Static game board with responsive layout",
+          "xp": 200
+        },
+        "day3": {
+          "title": "CSS Styling & Animations",
+          "lessons": [
+            "Game piece designs (X and O)",
+            "Hover effects and transitions",
+            "Click animations",
+            "Victory celebration animations"
+          ],
+          "deliverable": "Fully styled and animated game board",
+          "xp": 200
+        },
+        "day4": {
+          "title": "JavaScript Game Logic",
+          "lessons": [
+            "Board state management",
+            "Player turn system",
+            "Click event handling",
+            "Game state tracking"
+          ],
+          "deliverable": "Playable local game with turn management",
+          "xp": 250
+        },
+        "day5": {
+          "title": "Win Condition & Game Flow",
+          "lessons": [
+            "Win condition checking algorithm",
+            "Draw detection",
+            "Game reset functionality",
+            "Score tracking system"
+          ],
+          "deliverable": "Complete single-player game",
+          "xp": 250
+        },
+        "day6": {
+          "title": "UI Polish & Player Experience",
+          "lessons": [
+            "Game status messages",
+            "Player indicators",
+            "Score display",
+            "New game modal"
+          ],
+          "deliverable": "Polished single-player experience",
+          "xp": 200
+        },
+        "day7": {
+          "title": "Week 1 Review & Practice",
+          "lessons": [
+            "Code review and refactoring",
+            "Bug fixes",
+            "Performance optimization",
+            "Documentation"
+          ],
+          "deliverable": "Refined and documented base game",
+          "xp": 300
+        },
+        "day8": {
+          "title": "AI Opponent - Random Moves",
+          "lessons": [
+            "Computer player setup",
+            "Random move selection",
+            "Valid move validation",
+            "AI turn delays"
+          ],
+          "deliverable": "Working AI opponent (easy mode)",
+          "xp": 200
+        },
+        "day9": {
+          "title": "Minimax Algorithm Theory",
+          "lessons": [
+            "Game tree concepts",
+            "Minimax algorithm explanation",
+            "Position evaluation",
+            "Recursion in games"
+          ],
+          "deliverable": "Minimax algorithm documentation",
+          "xp": 250
+        },
+        "day10": {
+          "title": "Implementing Minimax AI",
+          "lessons": [
+            "Minimax implementation",
+            "Board evaluation function",
+            "Depth limiting",
+            "Move selection"
+          ],
+          "deliverable": "Unbeatable AI opponent",
+          "xp": 300
+        },
+        "day11": {
+          "title": "Difficulty Levels & AI Personalities",
+          "lessons": [
+            "Multiple difficulty modes",
+            "Mixed strategies",
+            "AI personality traits",
+            "Difficulty selection UI"
+          ],
+          "deliverable": "3+ difficulty levels with unique behaviors",
+          "xp": 250
+        },
+        "day12": {
+          "title": "Node.js Server Setup",
+          "lessons": [
+            "Express.js installation",
+            "Basic server creation",
+            "Static file serving",
+            "Route handling"
+          ],
+          "deliverable": "Running Node.js server",
+          "xp": 200
+        },
+        "day13": {
+          "title": "WebSocket Implementation",
+          "lessons": [
+            "Socket.io setup",
+            "Client-server connection",
+            "Event handling",
+            "Connection management"
+          ],
+          "deliverable": "Working WebSocket connection",
+          "xp": 250
+        },
+        "day14": {
+          "title": "Week 2 Review & Integration",
+          "lessons": [
+            "AI system testing",
+            "Server stability checks",
+            "Integration planning",
+            "Code organization"
+          ],
+          "deliverable": "Stable AI system and server foundation",
+          "xp": 300
+        },
+        "day15": {
+          "title": "Room System Implementation",
+          "lessons": [
+            "Room creation logic",
+            "Room codes generation",
+            "Join room functionality",
+            "Room management"
+          ],
+          "deliverable": "Working room system",
+          "xp": 250
+        },
+        "day16": {
+          "title": "Player Synchronization",
+          "lessons": [
+            "Game state broadcasting",
+            "Move validation",
+            "Turn enforcement",
+            "Sync conflict resolution"
+          ],
+          "deliverable": "Synchronized multiplayer moves",
+          "xp": 300
+        },
+        "day17": {
+          "title": "Network Game UI",
+          "lessons": [
+            "Lobby interface",
+            "Player waiting screen",
+            "Connection status",
+            "Network error handling"
+          ],
+          "deliverable": "Complete multiplayer UI",
+          "xp": 250
+        },
+        "day18": {
+          "title": "Chat System",
+          "lessons": [
+            "In-game chat implementation",
+            "Message broadcasting",
+            "Chat UI design",
+            "Emoji support"
+          ],
+          "deliverable": "Working chat system",
+          "xp": 200
+        },
+        "day19": {
+          "title": "Local Network Discovery",
+          "lessons": [
+            "IP detection",
+            "Server broadcasting",
+            "Auto-discovery UI",
+            "QR code for mobile"
+          ],
+          "deliverable": "Local network game discovery",
+          "xp": 250
+        },
+        "day20": {
+          "title": "Spectator Mode",
+          "lessons": [
+            "Join as spectator",
+            "Live game viewing",
+            "Spectator chat",
+            "Spectator count display"
+          ],
+          "deliverable": "Working spectator system",
+          "xp": 250
+        },
+        "day21": {
+          "title": "Week 3 Review & Testing",
+          "lessons": [
+            "Multiplayer testing",
+            "Network optimization",
+            "Bug fixing",
+            "Performance tuning"
+          ],
+          "deliverable": "Stable multiplayer game",
+          "xp": 300
+        },
+        "day22": {
+          "title": "Game Modes - Ultimate Tic-Tac-Toe",
+          "lessons": [
+            "9x9 grid implementation",
+            "Meta-game rules",
+            "UI adaptation",
+            "Rule variations"
+          ],
+          "deliverable": "Ultimate Tic-Tac-Toe mode",
+          "xp": 300
+        },
+        "day23": {
+          "title": "Tournament System",
+          "lessons": [
+            "Bracket generation",
+            "Match scheduling",
+            "Tournament progression",
+            "Leaderboard system"
+          ],
+          "deliverable": "Basic tournament functionality",
+          "xp": 300
+        },
+        "day24": {
+          "title": "Statistics & Analytics",
+          "lessons": [
+            "Game statistics tracking",
+            "Win/loss records",
+            "Move heatmaps",
+            "Player profiles"
+          ],
+          "deliverable": "Statistics dashboard",
+          "xp": 250
+        },
+        "day25": {
+          "title": "Sound & Visual Themes",
+          "lessons": [
+            "Sound effect integration",
+            "Background music",
+            "Multiple visual themes",
+            "Theme selection UI"
+          ],
+          "deliverable": "Audio system and 3+ themes",
+          "xp": 200
+        },
+        "day26": {
+          "title": "Mobile Optimization",
+          "lessons": [
+            "Touch controls",
+            "Mobile UI adjustments",
+            "Responsive improvements",
+            "Cross-device testing"
+          ],
+          "deliverable": "Mobile-optimized game",
+          "xp": 250
+        },
+        "day27": {
+          "title": "Deployment Preparation",
+          "lessons": [
+            "Production build",
+            "Environment variables",
+            "Security measures",
+            "Deployment planning"
+          ],
+          "deliverable": "Production-ready build",
+          "xp": 250
+        },
+        "day28": {
+          "title": "Week 4 Review & Polish",
+          "lessons": [
+            "Final bug fixes",
+            "UI/UX improvements",
+            "Performance optimization",
+            "Code cleanup"
+          ],
+          "deliverable": "Polished, bug-free game",
+          "xp": 300
+        },
+        "day29": {
+          "title": "Final Project Day 1",
+          "lessons": [
+            "Feature completion",
+            "Final testing",
+            "Documentation writing",
+            "Deployment setup"
+          ],
+          "deliverable": "Feature-complete game",
+          "xp": 400
+        },
+        "day30": {
+          "title": "Final Project Day 2 & Presentation",
+          "lessons": [
+            "Final deployment",
+            "Project presentation prep",
+            "Demo recording",
+            "Project showcase"
+          ],
+          "deliverable": "Deployed multiplayer Tic-Tac-Toe game",
+          "xp": 500
+        }
+      },
+      "total_xp": 7500,
+      "skills_developed": {
+        "gamedev": 100,
+        "networking": 90,
+        "javascript": 95,
+        "ai_prompting": 80,
+        "deployment": 70
+      }
+    },
+    "servicenow": {
+      "title": "ServiceNow Analytics Dashboard",
+      "days": {
+        "day1": {
+          "title": "Project Setup & Tailwind CSS",
+          "lessons": [
+            "Development environment setup",
+            "Tailwind CSS installation",
+            "Dashboard planning",
+            "Component architecture"
+          ],
+          "deliverable": "Tailwind project with basic layout",
+          "xp": 150
+        },
+        "day2": {
+          "title": "Understanding ServiceNow Data",
+          "lessons": [
+            "Incident data structure",
+            "Priority and urgency matrix",
+            "Categories and subcategories",
+            "Assignment groups"
+          ],
+          "deliverable": "Data model documentation",
+          "xp": 200
+        },
+        "day3": {
+          "title": "Sample Data & Parsing",
+          "lessons": [
+            "Creating sample datasets",
+            "CSV/JSON parsing",
+            "Data validation",
+            "Error handling"
+          ],
+          "deliverable": "Working data import system",
+          "xp": 250
+        },
+        "day4": {
+          "title": "Dashboard Layout Design",
+          "lessons": [
+            "Grid system setup",
+            "Responsive breakpoints",
+            "Component placement",
+            "Navigation structure"
+          ],
+          "deliverable": "Responsive dashboard shell",
+          "xp": 200
+        },
+        "day5": {
+          "title": "KPI Cards Implementation",
+          "lessons": [
+            "Total incidents card",
+            "Open vs closed metrics",
+            "MTTR calculation",
+            "Critical incident counter"
+          ],
+          "deliverable": "4+ working KPI cards",
+          "xp": 250
+        },
+        "day6": {
+          "title": "Trend Indicators",
+          "lessons": [
+            "Week-over-week changes",
+            "Percentage calculations",
+            "Up/down arrows",
+            "Color coding logic"
+          ],
+          "deliverable": "KPI cards with trend indicators",
+          "xp": 200
+        },
+        "day7": {
+          "title": "Week 1 Review & Refinement",
+          "lessons": [
+            "Code review",
+            "UI consistency check",
+            "Performance baseline",
+            "Documentation update"
+          ],
+          "deliverable": "Polished week 1 deliverables",
+          "xp": 300
+        },
+        "day8": {
+          "title": "Chart.js Integration",
+          "lessons": [
+            "Chart.js setup",
+            "Data formatting",
+            "Chart types selection",
+            "Basic chart creation"
+          ],
+          "deliverable": "First working chart",
+          "xp": 250
+        },
+        "day9": {
+          "title": "Priority Distribution Charts",
+          "lessons": [
+            "Donut chart creation",
+            "Priority data aggregation",
+            "Interactive legends",
+            "Tooltips and labels"
+          ],
+          "deliverable": "Priority distribution visualization",
+          "xp": 250
+        },
+        "day10": {
+          "title": "Time Series Analysis",
+          "lessons": [
+            "Line chart implementation",
+            "Date range handling",
+            "Time granularity options",
+            "Axis formatting"
+          ],
+          "deliverable": "Incident timeline chart",
+          "xp": 300
+        },
+        "day11": {
+          "title": "Category Breakdown",
+          "lessons": [
+            "Treemap visualization",
+            "Category hierarchies",
+            "Drill-down functionality",
+            "Color schemes"
+          ],
+          "deliverable": "Category analysis charts",
+          "xp": 300
+        },
+        "day12": {
+          "title": "Assignment Group Analytics",
+          "lessons": [
+            "Team performance metrics",
+            "Workload distribution",
+            "Bar chart comparisons",
+            "Ranking tables"
+          ],
+          "deliverable": "Team performance dashboard",
+          "xp": 250
+        },
+        "day13": {
+          "title": "Peak Hours Heatmap",
+          "lessons": [
+            "Heatmap creation",
+            "Hour/day grid",
+            "Color intensity mapping",
+            "Pattern identification"
+          ],
+          "deliverable": "Incident heatmap visualization",
+          "xp": 300
+        },
+        "day14": {
+          "title": "Week 2 Review & Integration",
+          "lessons": [
+            "Chart optimization",
+            "Cross-browser testing",
+            "Data accuracy verification",
+            "Visual consistency"
+          ],
+          "deliverable": "Complete visualization suite",
+          "xp": 300
+        },
+        "day15": {
+          "title": "Filtering System Design",
+          "lessons": [
+            "Filter UI components",
+            "Multi-select dropdowns",
+            "Date range pickers",
+            "Filter state management"
+          ],
+          "deliverable": "Working filter interface",
+          "xp": 250
+        },
+        "day16": {
+          "title": "Filter Implementation",
+          "lessons": [
+            "Filter logic",
+            "Data filtering functions",
+            "Chart updates on filter",
+            "Filter persistence"
+          ],
+          "deliverable": "Functional filtering system",
+          "xp": 300
+        },
+        "day17": {
+          "title": "SLA Compliance Metrics",
+          "lessons": [
+            "SLA calculation logic",
+            "Compliance gauges",
+            "Breach alerts",
+            "SLA trending"
+          ],
+          "deliverable": "SLA compliance dashboard",
+          "xp": 250
+        },
+        "day18": {
+          "title": "Resolution Time Analysis",
+          "lessons": [
+            "MTTR deep dive",
+            "Resolution time distribution",
+            "Aging analysis",
+            "Bottleneck identification"
+          ],
+          "deliverable": "Resolution analytics section",
+          "xp": 250
+        },
+        "day19": {
+          "title": "Export Functionality",
+          "lessons": [
+            "PDF generation",
+            "Excel export",
+            "Chart image export",
+            "Report templates"
+          ],
+          "deliverable": "Working export features",
+          "xp": 200
+        },
+        "day20": {
+          "title": "ServiceNow API Basics",
+          "lessons": [
+            "REST API understanding",
+            "Authentication setup",
+            "API endpoints",
+            "Rate limiting"
+          ],
+          "deliverable": "API connection documentation",
+          "xp": 250
+        },
+        "day21": {
+          "title": "Week 3 Review & Optimization",
+          "lessons": [
+            "Performance profiling",
+            "Query optimization",
+            "Caching strategies",
+            "Code refactoring"
+          ],
+          "deliverable": "Optimized dashboard",
+          "xp": 300
+        },
+        "day22": {
+          "title": "Live Data Integration",
+          "lessons": [
+            "API data fetching",
+            "Real-time updates",
+            "Error handling",
+            "Fallback strategies"
+          ],
+          "deliverable": "Live data connection",
+          "xp": 300
+        },
+        "day23": {
+          "title": "Custom Report Builder",
+          "lessons": [
+            "Report template system",
+            "Drag-drop interface",
+            "Custom metrics",
+            "Report scheduling"
+          ],
+          "deliverable": "Basic report builder",
+          "xp": 300
+        },
+        "day24": {
+          "title": "Predictive Analytics",
+          "lessons": [
+            "Trend forecasting",
+            "Simple predictions",
+            "Anomaly detection",
+            "Alert thresholds"
+          ],
+          "deliverable": "Predictive features",
+          "xp": 300
+        },
+        "day25": {
+          "title": "Mobile Responsiveness",
+          "lessons": [
+            "Mobile layout adjustments",
+            "Touch interactions",
+            "Mobile-specific features",
+            "Testing on devices"
+          ],
+          "deliverable": "Mobile-optimized dashboard",
+          "xp": 200
+        },
+        "day26": {
+          "title": "Dark Mode & Themes",
+          "lessons": [
+            "Dark mode implementation",
+            "Theme switching",
+            "Color accessibility",
+            "User preferences"
+          ],
+          "deliverable": "Multiple theme options",
+          "xp": 200
+        },
+        "day27": {
+          "title": "Security & Performance",
+          "lessons": [
+            "Data security measures",
+            "Performance optimization",
+            "Bundle size reduction",
+            "Loading strategies"
+          ],
+          "deliverable": "Secure, optimized build",
+          "xp": 250
+        },
+        "day28": {
+          "title": "Week 4 Review & Polish",
+          "lessons": [
+            "Final bug fixes",
+            "UI polish",
+            "Documentation completion",
+            "User testing"
+          ],
+          "deliverable": "Production-ready dashboard",
+          "xp": 300
+        },
+        "day29": {
+          "title": "Business Value Documentation",
+          "lessons": [
+            "ROI calculations",
+            "Success metrics",
+            "User guide creation",
+            "Training materials"
+          ],
+          "deliverable": "Complete documentation package",
+          "xp": 400
+        },
+        "day30": {
+          "title": "Final Deployment & Demo",
+          "lessons": [
+            "Production deployment",
+            "Demo preparation",
+            "Stakeholder presentation",
+            "Project showcase"
+          ],
+          "deliverable": "Deployed ServiceNow Analytics Dashboard",
+          "xp": 500
+        }
+      },
+      "total_xp": 7500,
+      "skills_developed": {
+        "tailwind": 95,
+        "analytics": 100,
+        "javascript": 85,
+        "ai_prompting": 80,
+        "deployment": 70
+      }
+    },
+    "msgraph": {
+      "title": "Microsoft Graph Device Analytics Dashboard",
+      "days": {
+        "day1": {
+          "title": "Azure AD App Registration & Authentication",
+          "lessons": [
+            "Understanding Microsoft Graph API architecture",
+            "Creating Azure AD app registration",
+            "Configuring API permissions for devices",
+            "Setting up OAuth 2.0 authentication flow"
+          ],
+          "deliverable": "Working app registration with proper permissions",
+          "xp": 200
+        },
+        "day2": {
+          "title": "Graph API Authentication Implementation",
+          "lessons": [
+            "MSAL.js library integration",
+            "Client-side authentication flow",
+            "Token acquisition and refresh",
+            "Error handling for auth failures"
+          ],
+          "deliverable": "Functional authentication with token management",
+          "xp": 250
+        },
+        "day3": {
+          "title": "Device Data Discovery & Exploration",
+          "lessons": [
+            "Exploring Graph API device endpoints",
+            "Understanding device properties and schemas",
+            "Intune API integration possibilities",
+            "Rate limiting and pagination strategies"
+          ],
+          "deliverable": "Documented API endpoints and available data fields",
+          "xp": 200
+        },
+        "day4": {
+          "title": "Core Device Data Fetching",
+          "lessons": [
+            "Implementing device list queries",
+            "Filtering and sorting devices",
+            "Handling large datasets with pagination",
+            "Caching strategies for performance"
+          ],
+          "deliverable": "Working device data retrieval system",
+          "xp": 250
+        },
+        "day5": {
+          "title": "Operating System Analytics",
+          "lessons": [
+            "Grouping devices by OS version",
+            "OS distribution calculations",
+            "Support lifecycle tracking",
+            "Security patch level analysis"
+          ],
+          "deliverable": "OS analytics with version breakdowns",
+          "xp": 250
+        },
+        "day6": {
+          "title": "Hardware Analytics Dashboard",
+          "lessons": [
+            "Processor family categorization",
+            "RAM and storage analysis",
+            "Hardware age calculations",
+            "Compliance and compatibility checks"
+          ],
+          "deliverable": "Hardware analytics with processor/memory insights",
+          "xp": 250
+        },
+        "day7": {
+          "title": "Week 1 Integration & Review",
+          "lessons": [
+            "Code review and optimization",
+            "Error handling improvements",
+            "Performance testing",
+            "Security best practices review"
+          ],
+          "deliverable": "Polished foundation with proper error handling",
+          "xp": 300
+        },
+        "day8": {
+          "title": "Chart.js Visualization Setup",
+          "lessons": [
+            "Chart.js library integration",
+            "Responsive chart configuration",
+            "Color schemes and theming",
+            "Interactive chart elements"
+          ],
+          "deliverable": "Basic charting foundation with sample data",
+          "xp": 200
+        },
+        "day9": {
+          "title": "OS Distribution Pie Charts",
+          "lessons": [
+            "Pie chart implementation for OS data",
+            "Dynamic data binding",
+            "Tooltips and legends",
+            "Click-through functionality"
+          ],
+          "deliverable": "Interactive OS distribution pie chart",
+          "xp": 250
+        },
+        "day10": {
+          "title": "Hardware Specification Bar Charts",
+          "lessons": [
+            "Bar charts for processor families",
+            "Horizontal bar charts for memory distribution",
+            "Stacked charts for storage analysis",
+            "Comparison visualizations"
+          ],
+          "deliverable": "Multiple hardware analytics bar charts",
+          "xp": 250
+        },
+        "day11": {
+          "title": "Compliance Status Visualization",
+          "lessons": [
+            "Compliance policy data integration",
+            "Status indicators and gauges",
+            "Risk assessment visualizations",
+            "Drill-down capabilities"
+          ],
+          "deliverable": "Compliance dashboard with status indicators",
+          "xp": 250
+        },
+        "day12": {
+          "title": "Time-Series Device Registration Trends",
+          "lessons": [
+            "Line charts for registration trends",
+            "Date range filtering",
+            "Trend analysis calculations",
+            "Forecasting visualizations"
+          ],
+          "deliverable": "Time-series charts showing device trends",
+          "xp": 250
+        },
+        "day13": {
+          "title": "Advanced Filtering & Search",
+          "lessons": [
+            "Multi-criteria filtering system",
+            "Search functionality implementation",
+            "Dynamic chart updates",
+            "Filter state persistence"
+          ],
+          "deliverable": "Advanced filtering system with search",
+          "xp": 250
+        },
+        "day14": {
+          "title": "Week 2 Review & Performance Optimization",
+          "lessons": [
+            "Code review and refactoring",
+            "Chart performance optimization",
+            "Memory leak prevention",
+            "User experience improvements"
+          ],
+          "deliverable": "Optimized visualization dashboard",
+          "xp": 300
+        },
+        "day15": {
+          "title": "Real-Time Data Updates",
+          "lessons": [
+            "WebSocket or polling implementation",
+            "Incremental data updates",
+            "Chart animation for data changes",
+            "Connection state management"
+          ],
+          "deliverable": "Real-time updating dashboard",
+          "xp": 300
+        },
+        "day16": {
+          "title": "Device Detail Modal & Drill-Down",
+          "lessons": [
+            "Individual device detail views",
+            "Modal component implementation",
+            "Detailed device information display",
+            "Navigation breadcrumbs"
+          ],
+          "deliverable": "Detailed device information modals",
+          "xp": 250
+        },
+        "day17": {
+          "title": "Data Export & Reporting",
+          "lessons": [
+            "CSV export functionality",
+            "PDF report generation",
+            "Scheduled report capabilities",
+            "Email integration for reports"
+          ],
+          "deliverable": "Data export and reporting system",
+          "xp": 250
+        },
+        "day18": {
+          "title": "Custom Dashboard Widgets",
+          "lessons": [
+            "Draggable dashboard layout",
+            "Configurable widget system",
+            "Widget state persistence",
+            "Custom chart configurations"
+          ],
+          "deliverable": "Customizable dashboard with widgets",
+          "xp": 300
+        },
+        "day19": {
+          "title": "Intune Policy Integration",
+          "lessons": [
+            "Intune API endpoint exploration",
+            "Policy assignment visualization",
+            "Compliance policy mapping",
+            "Security baseline reporting"
+          ],
+          "deliverable": "Intune policy compliance visualizations",
+          "xp": 250
+        },
+        "day20": {
+          "title": "Application Inventory Dashboard",
+          "lessons": [
+            "Installed applications data retrieval",
+            "Software version tracking",
+            "License compliance monitoring",
+            "Security risk assessment for apps"
+          ],
+          "deliverable": "Application inventory and compliance dashboard",
+          "xp": 250
+        },
+        "day21": {
+          "title": "Week 3 Review & Integration Testing",
+          "lessons": [
+            "End-to-end testing implementation",
+            "API integration testing",
+            "Performance benchmarking",
+            "Security vulnerability assessment"
+          ],
+          "deliverable": "Comprehensive test suite and security review",
+          "xp": 300
+        },
+        "day22": {
+          "title": "Advanced Security Analytics",
+          "lessons": [
+            "Security compliance scoring",
+            "Threat detection indicators",
+            "BitLocker encryption status",
+            "Windows Defender status tracking"
+          ],
+          "deliverable": "Security analytics dashboard",
+          "xp": 250
+        },
+        "day23": {
+          "title": "User Experience & Accessibility",
+          "lessons": [
+            "ARIA labels for screen readers",
+            "Keyboard navigation support",
+            "Color contrast optimization",
+            "Mobile responsive improvements"
+          ],
+          "deliverable": "Accessible and mobile-optimized interface",
+          "xp": 200
+        },
+        "day24": {
+          "title": "Error Handling & Logging",
+          "lessons": [
+            "Comprehensive error boundaries",
+            "API error handling strategies",
+            "User-friendly error messages",
+            "Application logging implementation"
+          ],
+          "deliverable": "Robust error handling and logging system",
+          "xp": 200
+        },
+        "day25": {
+          "title": "Performance Monitoring & Analytics",
+          "lessons": [
+            "Application performance monitoring",
+            "User interaction analytics",
+            "Chart rendering performance metrics",
+            "Memory usage optimization"
+          ],
+          "deliverable": "Performance monitoring and optimization",
+          "xp": 250
+        },
+        "day26": {
+          "title": "Multi-Tenant Support",
+          "lessons": [
+            "Multiple Azure AD tenant support",
+            "Tenant switching functionality",
+            "Cross-tenant data comparison",
+            "Tenant-specific configurations"
+          ],
+          "deliverable": "Multi-tenant capable dashboard",
+          "xp": 300
+        },
+        "day27": {
+          "title": "Automated Testing & CI/CD",
+          "lessons": [
+            "Unit testing for Graph API calls",
+            "Integration testing setup",
+            "GitHub Actions workflow",
+            "Automated deployment pipeline"
+          ],
+          "deliverable": "Complete CI/CD pipeline with automated testing",
+          "xp": 250
+        },
+        "day28": {
+          "title": "Week 4 Final Review & Documentation",
+          "lessons": [
+            "Code documentation and comments",
+            "User guide creation",
+            "API documentation",
+            "Deployment instructions"
+          ],
+          "deliverable": "Complete documentation package",
+          "xp": 300
+        },
+        "day29": {
+          "title": "Production Deployment & Monitoring",
+          "lessons": [
+            "Azure App Service deployment",
+            "Application Insights integration",
+            "Production monitoring setup",
+            "Security hardening for production"
+          ],
+          "deliverable": "Production-deployed application with monitoring",
+          "xp": 350
+        },
+        "day30": {
+          "title": "Final Project Showcase & Future Planning",
+          "lessons": [
+            "Project demonstration preparation",
+            "Feature showcase documentation",
+            "Future enhancement planning",
+            "Community sharing and feedback"
+          ],
+          "deliverable": "Complete Microsoft Graph analytics dashboard",
+          "xp": 400
+        }
+      },
+      "final_skills": {
+        "microsoft_graph": 100,
+        "azure_ad": 90,
+        "oauth2": 85,
+        "data_visualization": 95,
+        "intune_api": 80,
+        "javascript": 90,
+        "ai_prompting": 85,
+        "security_analytics": 75,
+        "deployment": 80
+      }
+    }
+  },
+  "daily_structure": {
+    "morning": {
+      "duration": "45 minutes",
+      "activities": [
+        "Review previous day's work",
+        "Read today's lessons",
+        "Set up development environment",
+        "Plan implementation approach"
+      ]
+    },
+    "main_session": {
+      "duration": "90 minutes",
+      "activities": [
+        "Code implementation",
+        "AI pair programming",
+        "Testing and debugging",
+        "Feature completion"
+      ]
+    },
+    "evening": {
+      "duration": "45 minutes",
+      "activities": [
+        "Code review",
+        "Documentation",
+        "Git commits",
+        "Prepare for next day"
+      ]
+    }
+  },
+  "support_resources": {
+    "daily_checklist": [
+      "Morning standup (self-review)",
+      "Complete all lesson objectives",
+      "Test your implementation",
+      "Commit to Git with meaningful message",
+      "Update progress tracker",
+      "Review and refactor if time permits"
+    ],
+    "ai_prompting_tips": [
+      "Start with high-level design questions",
+      "Break complex problems into smaller parts",
+      "Ask for code reviews and improvements",
+      "Request explanations for concepts you don't understand",
+      "Use AI for debugging assistance"
+    ],
+    "success_metrics": {
+      "daily": "Complete daily deliverable",
+      "weekly": "Pass weekly review milestone",
+      "monthly": "Deploy working project"
+    }
+  }
+}

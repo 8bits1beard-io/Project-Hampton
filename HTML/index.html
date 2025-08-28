@@ -1,0 +1,2055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Hampton - Vibe Coding Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Cleveland Elementary Base Colors */
+            --hampton-navy: #001689;
+            --soft-periwinkle: #a0aef6;
+            --cloud-white: #ffffff;
+            --storm-gray: #abb8c3;
+            --victory-gold: #FFD700;
+            --code-green: #10B981;
+            --warm-coral: #FF6B6B;
+            --midnight: #0F172A;
+            
+            /* Active Theme Colors - Default to Claude Code */
+            --primary-color: #001689;
+            --secondary-color: #a0aef6;
+            --bg-gradient-start: #001689;
+            --bg-gradient-end: #a0aef6;
+            --text-primary: #0F172A;
+            --text-secondary: #64748b;
+            --surface-bg: #ffffff;
+            --surface-border: #a0aef6;
+        }
+        
+        /* Claude Code Theme */
+        [data-tool="claude-code"] {
+            --primary-color: #001689;
+            --secondary-color: #a0aef6;
+            --bg-gradient-start: #001689;
+            --bg-gradient-end: #a0aef6;
+            --accent-color: #FFD700;
+        }
+        
+        /* Code Puppy Theme - Professional Green/Teal */
+        [data-tool="code-puppy"] {
+            --primary-color: #0D7377;
+            --secondary-color: #14FFEC;
+            --bg-gradient-start: #0D7377;
+            --bg-gradient-end: #32E0C4;
+            --accent-color: #FFD700;
+        }
+        
+        /* Dark Mode */
+        [data-theme="dark"] {
+            --surface-bg: #1a1a2e;
+            --surface-border: rgba(255, 255, 255, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --cloud-white: #2a2a3e;
+            --storm-gray: #8a8a8a;
+            --hampton-navy: #ffffff;
+        }
+        
+        [data-theme="dark"][data-tool="claude-code"] {
+            --bg-gradient-start: #0a0e27;
+            --bg-gradient-end: #1a237e;
+        }
+        
+        [data-theme="dark"][data-tool="code-puppy"] {
+            --bg-gradient-start: #0a3d3f;
+            --bg-gradient-end: #1a6b5c;
+        }
+        
+        /* Smooth transitions for theme changes */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--secondary-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        [data-theme="dark"] .nav-header {
+            background: rgba(26, 26, 46, 0.95);
+            border-bottom-color: var(--surface-border);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-primary);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .tool-switcher {
+            background: var(--cloud-white);
+            border: 2px solid var(--soft-periwinkle);
+            border-radius: 20px;
+            padding: 0.25rem;
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .tool-option {
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            border: none;
+            background: transparent;
+            color: var(--hampton-navy);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tool-option.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        /* Theme Toggle Switch */
+        .theme-toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+        
+        .theme-toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--storm-gray);
+            transition: 0.4s;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background: white;
+            transition: 0.4s;
+            border-radius: 50%;
+            z-index: 2;
+        }
+        
+        .theme-toggle-switch input:checked + .slider {
+            background: var(--primary-color);
+        }
+        
+        .theme-toggle-switch input:checked + .slider:before {
+            transform: translateX(30px);
+        }
+        
+        .icon-light, .icon-dark {
+            font-size: 14px;
+            z-index: 1;
+        }
+        
+        .icon-light {
+            margin-left: 2px;
+        }
+        
+        .icon-dark {
+            margin-right: 2px;
+        }
+
+        .hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 3rem 4rem;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 5.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.75rem;
+            margin-bottom: 4rem;
+            opacity: 0.95;
+            white-space: nowrap;
+            font-weight: 400;
+        }
+
+        .hero-value-props {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .value-prop {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .value-prop:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .prop-icon {
+            font-size: 1.3rem;
+        }
+
+        .prop-text {
+            color: white;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .hero-cta {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 500px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-cta h2 {
+            color: var(--hampton-navy);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-cta p {
+            color: var(--storm-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(160, 174, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--hampton-navy);
+            border: 2px solid var(--soft-periwinkle);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--soft-periwinkle);
+            color: white;
+        }
+
+        .projects-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 3rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            font-weight: 700;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--surface-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--secondary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        [data-theme="dark"] .project-card {
+            background: var(--cloud-white);
+            border-color: var(--surface-border);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(160, 174, 246, 0.3);
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--soft-periwinkle), var(--victory-gold));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card h3 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: var(--soft-periwinkle);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .btn-hampton {
+            background: linear-gradient(45deg, var(--hampton-navy), var(--soft-periwinkle));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-hampton:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(160, 174, 246, 0.4);
+        }
+
+        /* Hero Features - Gamification Spotlight */
+        .hero-features {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.1) 100%);
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            animation: shimmer 8s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .feature-spotlight {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        
+        .spotlight-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .highlight-text {
+            display: block;
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle-text {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--victory-gold);
+            font-weight: 500;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .feature-card {
+            background: var(--surface-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        [data-theme="dark"] .feature-card {
+            background: var(--cloud-white);
+        }
+        
+        .feature-card.primary {
+            border: 3px solid var(--victory-gold);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.2);
+        }
+        
+        .feature-card.secondary {
+            border: 3px solid var(--secondary-color);
+            box-shadow: 0 10px 40px rgba(160, 174, 246, 0.2);
+        }
+        
+        .feature-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+        
+        .feature-card h3 {
+            color: var(--text-primary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-description {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .code-example {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(45deg, var(--victory-gold), #FFA500);
+            color: var(--midnight);
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        
+        .feature-benefits {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        
+        .benefit {
+            color: var(--text-primary);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .achievement-preview {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .mini-achievement {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+            border: 1px solid var(--victory-gold);
+        }
+        
+        .mini-achievement span {
+            font-size: 1.5rem;
+        }
+        
+        .mini-achievement strong {
+            display: block;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+        
+        .mini-achievement small {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+        
+        .stats-preview {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-card {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--victory-gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .stat-label {
+            color: white;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .progress-demo {
+            background: var(--surface-bg);
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 3rem auto;
+            max-width: 1200px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--secondary-color);
+        }
+        
+        [data-theme="dark"] .progress-demo {
+            background: var(--cloud-white);
+            border-color: var(--surface-border);
+        }
+
+        .progress-demo h3 {
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .module-progress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(160, 174, 246, 0.1);
+            border-radius: 8px;
+        }
+
+        .module-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .module-status {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        .status-complete {
+            background: var(--code-green);
+        }
+
+        .status-current {
+            background: var(--victory-gold);
+        }
+
+        .status-locked {
+            background: var(--storm-gray);
+        }
+
+        .module-details h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .module-details p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .badge {
+            background: var(--victory-gold);
+            color: #0F172A;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .week-overview {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .week-card {
+            background: var(--surface-bg);
+            border: 2px solid var(--storm-gray);
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            min-width: 120px;
+            transition: all 0.3s ease;
+        }
+        
+        [data-theme="dark"] .week-card {
+            background: var(--cloud-white);
+        }
+
+        .week-card.completed {
+            border-color: var(--code-green);
+            background: linear-gradient(45deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+        }
+
+        .week-card.current {
+            border-color: var(--victory-gold);
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05));
+            transform: scale(1.05);
+        }
+
+        .week-card.locked {
+            opacity: 0.6;
+        }
+
+        .week-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .week-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .week-progress {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .current-module-detail {
+            margin-top: 2rem;
+        }
+
+        .current-module-detail h4 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .exercise-score {
+            font-size: 0.8rem;
+            color: var(--code-green);
+            margin-top: 0.25rem;
+        }
+
+        .exercise-progress {
+            margin-top: 0.5rem;
+        }
+
+        .progress-bar {
+            background: var(--storm-gray);
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 0.25rem;
+        }
+
+        .progress-fill {
+            background: var(--victory-gold);
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-code-demo {
+            background: var(--surface-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--secondary-color);
+        }
+        
+        [data-theme="dark"] .progress-code-demo {
+            background: var(--cloud-white);
+            border-color: var(--surface-border);
+        }
+
+        .progress-code-demo h3 {
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .retro-terminal {
+            background: var(--midnight);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--soft-periwinkle);
+        }
+
+        .terminal-header {
+            background: var(--hampton-navy);
+            color: white;
+            padding: 0.75rem 1rem;
+            font-weight: bold;
+        }
+
+        .terminal-content {
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            color: var(--code-green);
+        }
+
+        .code-line {
+            margin-bottom: 0.5rem;
+        }
+
+        .prompt {
+            color: var(--victory-gold);
+            margin-right: 0.5rem;
+        }
+
+        .generated-code-display {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--code-green);
+            border-radius: 5px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .code-label {
+            color: var(--code-green);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .code-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--victory-gold);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        .code-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .code-breakdown span {
+            font-size: 0.8rem;
+            color: var(--storm-gray);
+        }
+
+        .code-actions-demo {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .btn-retro {
+            background: var(--soft-periwinkle);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn-retro:hover {
+            background: var(--hampton-navy);
+        }
+
+        .achievements-demo {
+            background: var(--surface-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--secondary-color);
+        }
+        
+        [data-theme="dark"] .achievements-demo {
+            background: var(--cloud-white);
+            border-color: var(--surface-border);
+        }
+
+        .achievements-demo h3 {
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .achievement {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .achievement.earned {
+            background: linear-gradient(45deg, rgba(16, 185, 129, 0.1), rgba(255, 215, 0, 0.1));
+            border: 2px solid var(--code-green);
+        }
+
+        .achievement.earned:hover {
+            transform: translateY(-2px);
+        }
+
+        .achievement.locked {
+            background: rgba(171, 184, 195, 0.1);
+            border: 2px solid var(--storm-gray);
+            opacity: 0.6;
+        }
+
+        .achievement-icon {
+            font-size: 1.5rem;
+            width: 40px;
+            text-align: center;
+        }
+
+        .achievement-info h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .achievement-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .achievement-info small {
+            color: var(--code-green);
+            font-size: 0.8rem;
+        }
+
+        .achievement-stats {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(160, 174, 246, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--victory-gold);
+        }
+
+        .stat-label {
+            color: var(--hampton-navy);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* About Section Styles */
+        .about-section {
+            background: var(--surface-bg);
+            padding: 5rem 0;
+            margin: 4rem 0;
+            position: relative;
+        }
+        
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        
+        .about-title {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+        
+        .about-content {
+            display: grid;
+            gap: 3rem;
+        }
+        
+        .about-intro {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--surface-border);
+        }
+        
+        .about-intro h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-intro p,
+        .tribute-content p {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+        }
+        
+        .hampton-tribute {
+            background: linear-gradient(135deg, rgba(160, 174, 246, 0.1), rgba(0, 22, 137, 0.05));
+            border-radius: 20px;
+            padding: 3rem;
+            border: 2px solid var(--secondary-color);
+            position: relative;
+        }
+        
+        .tribute-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .tribute-header h3 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .tribute-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+        
+        .tribute-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .tribute-quote {
+            font-style: italic;
+            font-size: 1.2rem !important;
+            color: var(--primary-color) !important;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 2rem;
+            margin: 2rem 0;
+            font-weight: 500;
+        }
+        
+        /* Dark mode adjustments for About section */
+        [data-theme="dark"] .about-intro {
+            background: rgba(26, 26, 46, 0.95);
+        }
+        
+        [data-theme="dark"] .hampton-tribute {
+            background: linear-gradient(135deg, rgba(160, 174, 246, 0.05), rgba(0, 22, 137, 0.1));
+        }
+        
+        .learning-features {
+            background: var(--surface-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 1000px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .learning-features h3 {
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        [data-theme="dark"] .learning-features {
+            background: rgba(26, 26, 46, 0.95);
+            border-color: var(--surface-border);
+        }
+
+        .curriculum-overview {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .curriculum-week {
+            border: 2px solid var(--storm-gray);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .curriculum-week:first-child {
+            border-color: var(--code-green);
+            background: linear-gradient(45deg, rgba(16, 185, 129, 0.05), rgba(16, 185, 129, 0.02));
+        }
+
+        .curriculum-week:nth-child(2) {
+            border-color: var(--victory-gold);
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.05), rgba(255, 215, 0, 0.02));
+        }
+
+        .week-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .week-header h4 {
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .week-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .week-status.completed {
+            background: var(--code-green);
+            color: white;
+        }
+
+        .week-status.upcoming {
+            background: var(--victory-gold);
+            color: var(--hampton-navy);
+        }
+
+        .week-status.locked {
+            background: var(--storm-gray);
+            color: white;
+        }
+
+        .week-topics {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .week-topics li {
+            padding: 0.5rem 0;
+            color: var(--text-primary);
+            border-bottom: 1px solid rgba(160, 174, 246, 0.2);
+        }
+
+        .week-topics li:last-child {
+            border-bottom: none;
+        }
+
+        /* Large Desktop (default styles above) */
+        
+        /* Medium Desktop */
+        @media (max-width: 1440px) {
+            .hero h1 {
+                font-size: 4.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Small Desktop / Large Tablet */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+                white-space: normal;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .curriculum-overview {
+                grid-template-columns: 1fr;
+            }
+            
+            .achievement-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Tablet */
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-preview {
+                grid-template-columns: repeat(2, 2fr);
+            }
+            
+            .highlight-text {
+                font-size: 2rem;
+            }
+            
+            .subtitle-text {
+                font-size: 1.2rem;
+            }
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+            
+            .hero {
+                padding: 4rem 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-value-props {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .value-prop {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .week-overview {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .achievement-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+            
+            .tool-switcher {
+                width: 100%;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+            
+            .achievement-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .code-actions-demo {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body data-tool="claude-code" data-theme="light">
+    <nav class="nav-header">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">H</div>
+                <span>Project: Hampton</span>
+                <span style="font-size: 0.75rem; color: var(--storm-gray); margin-left: 1rem; padding: 0.25rem 0.75rem; background: rgba(160, 174, 246, 0.1); border-radius: 15px;">v0.0.1</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#learn">Learn</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#progress">Progress</a></li>
+                <li><a href="#about">About</a></li>
+                <li>
+                    <div class="tool-switcher">
+                        <button class="tool-option active" data-tool="claude-code">Claude Code</button>
+                        <button class="tool-option" data-tool="code-puppy">Code Puppy</button>
+                    </div>
+                </li>
+                <li>
+                    <label class="theme-toggle-switch">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="slider">
+                            <span class="icon-light">☀️</span>
+                            <span class="icon-dark">🌙</span>
+                        </span>
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>Project: Hampton</h1>
+            <p class="hero-subtitle">Learn to build real software with AI coding assistants in 30 days</p>
+            
+            <div class="hero-value-props">
+                <div class="value-prop">
+                    <span class="prop-icon">🎯</span>
+                    <span class="prop-text">Build a complete, working application</span>
+                </div>
+                <div class="value-prop">
+                    <span class="prop-icon">🤖</span>
+                    <span class="prop-text">Master Claude Code & prompt engineering</span>
+                </div>
+                <div class="value-prop">
+                    <span class="prop-icon">💼</span>
+                    <span class="prop-text">Learn professional Git workflows & deployment</span>
+                </div>
+            </div>
+
+            <div class="hero-cta">
+                <h2>Ready to start coding with AI?</h2>
+                <p>Choose your project and begin your journey:</p>
+                <div class="cta-buttons">
+                    <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">Get Started</button>
+                    <button class="btn-secondary" onclick="document.getElementById('learn').scrollIntoView({behavior: 'smooth'})">View Curriculum</button>
+                </div>
+                
+                <!-- Progress Code Entry -->
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(160, 174, 246, 0.3);">
+                    <h3 style="color: var(--hampton-navy); font-size: 1.2rem; margin-bottom: 0.5rem;">Returning Student?</h3>
+                    <p style="color: var(--storm-gray); font-size: 0.9rem; margin-bottom: 1rem;">Enter your progress code to continue where you left off:</p>
+                    <div style="display: flex; gap: 0.5rem; max-width: 400px; margin: 0 auto;">
+                        <input 
+                            type="text" 
+                            id="progress-code-input" 
+                            placeholder="HAMPTON-XXXX-XXXX-XXXX" 
+                            style="flex: 1; padding: 0.75rem; border: 2px solid var(--soft-periwinkle); border-radius: 8px; font-size: 1rem; font-family: 'Courier New', monospace; text-transform: uppercase;"
+                            onkeyup="if(event.key === 'Enter') loadProgress()"
+                        />
+                        <button 
+                            class="btn-secondary" 
+                            onclick="loadProgress()"
+                            style="padding: 0.75rem 1.5rem; font-size: 1rem;"
+                        >Load</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Major Feature: Gamification & Progress Codes -->
+        <section class="hero-features">
+            <div class="feature-spotlight">
+                <div class="spotlight-content">
+                    <h2 class="spotlight-title">
+                        <span class="highlight-text">Never Lose Your Progress</span>
+                        <span class="subtitle-text">Retro 8-Bit Save Codes + RPG Progression</span>
+                    </h2>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-card primary">
+                            <div class="feature-header">
+                                <span class="feature-badge">🎮 EXCLUSIVE FEATURE</span>
+                                <h3>Progress Password System</h3>
+                            </div>
+                            <p class="feature-description">
+                                Remember entering passwords in classic NES-era games? We brought that magic back! 
+                                Get a unique code like <span class="code-example">HAMPTON-DASH-W3M2-K9Q7</span> 
+                                that saves your ENTIRE learning journey.
+                            </p>
+                            <div class="feature-benefits">
+                                <div class="benefit">✅ No account needed</div>
+                                <div class="benefit">✅ Works on any device</div>
+                                <div class="benefit">✅ Share progress with friends</div>
+                                <div class="benefit">✅ Pick up exactly where you left off</div>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card secondary">
+                            <div class="feature-header">
+                                <span class="feature-badge">🏆 LEVEL UP</span>
+                                <h3>Full RPG Experience</h3>
+                            </div>
+                            <p class="feature-description">
+                                Learning to code becomes an adventure with XP points, achievement badges, 
+                                skill trees, and daily quests. Watch your character grow from Novice to Master!
+                            </p>
+                            <div class="achievement-preview">
+                                <div class="mini-achievement">
+                                    <span>🎯</span>
+                                    <div>
+                                        <strong>First Blood</strong>
+                                        <small>Write your first prompt</small>
+                                    </div>
+                                </div>
+                                <div class="mini-achievement">
+                                    <span>⚡</span>
+                                    <div>
+                                        <strong>Speed Demon</strong>
+                                        <small>Complete 5 modules in one day</small>
+                                    </div>
+                                </div>
+                                <div class="mini-achievement">
+                                    <span>💎</span>
+                                    <div>
+                                        <strong>Git Wizard</strong>
+                                        <small>Master version control</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-preview">
+                        <div class="stat-card">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Achievements to Unlock</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Skill Trees to Master</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">∞</div>
+                            <div class="stat-label">Daily Challenges</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Progress Saved</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section">
+            <h2 class="section-title">Choose Your Adventure</h2>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">📊</div>
+                    <h3>Personal Dashboard App</h3>
+                    <p>Build a productivity powerhouse with weather, todos, calendar integration, and smart notifications. Your digital command center awaits!</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">SQLite</span>
+                        <span class="tech-tag">APIs</span>
+                    </div>
+                    <button class="btn-hampton" onclick="startProject('dashboard')">Start Building</button>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">✍️</div>
+                    <h3>AI-Powered Blog Platform</h3>
+                    <p>Create a stunning blog with AI writing assistance, SEO optimization, and reader engagement features. Content creation made effortless!</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">OpenAI</span>
+                        <span class="tech-tag">Vercel</span>
+                    </div>
+                    <button class="btn-hampton" onclick="startProject('blog')">Start Building</button>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🤖</div>
+                    <h3>Automation Bot Suite</h3>
+                    <p>Build your personal assistant with automation scripts, webhook integrations, and a sleek control panel. Let the robots work for you!</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Discord</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                    <button class="btn-hampton" onclick="startProject('automation')">Start Building</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="progress" class="progress-demo">
+            <h3>Your Learning Journey - Day 1 of 30</h3>
+            
+            <div class="week-overview">
+                <div class="week-card current">
+                    <div class="week-number">Days 1-7</div>
+                    <div class="week-title">Foundation & Setup</div>
+                    <div class="week-progress">0/7 days 🚀</div>
+                </div>
+                <div class="week-card locked">
+                    <div class="week-number">Days 8-14</div>
+                    <div class="week-title">Core Development</div>
+                    <div class="week-progress">0/7 days 🔒</div>
+                </div>
+                <div class="week-card locked">
+                    <div class="week-number">Days 15-21</div>
+                    <div class="week-title">Advanced Features</div>
+                    <div class="week-progress">0/7 days 🔒</div>
+                </div>
+            </div>
+
+            <div class="current-module-detail">
+                <h4>Today's Focus: Environment Setup</h4>
+                
+                <div class="module-progress">
+                    <div class="module-info">
+                        <div class="module-status status-current">⚡</div>
+                        <div class="module-details">
+                            <h4>Exercise 1: Install Development Tools</h4>
+                            <p>Set up VS Code, Git, Node.js, and AI coding assistants</p>
+                            <div class="exercise-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%;"></div>
+                                </div>
+                                <span>Not started</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="badge" style="background: var(--victory-gold);">Ready to Start</div>
+                </div>
+
+                <div class="module-progress">
+                    <div class="module-info">
+                        <div class="module-status status-locked">🔒</div>
+                        <div class="module-details">
+                            <h4>Exercise 2: Create Project Structure</h4>
+                            <p>Initialize Git repository and set up project folders</p>
+                        </div>
+                    </div>
+                    <div class="badge" style="background: var(--storm-gray); color: white;">Locked</div>
+                </div>
+
+                <div class="module-progress">
+                    <div class="module-info">
+                        <div class="module-status status-locked">🔒</div>
+                        <div class="module-details">
+                            <h4>Exercise 3: First AI Prompt</h4>
+                            <p>Write your first prompt and generate starter code</p>
+                        </div>
+                    </div>
+                    <div class="badge" style="background: var(--storm-gray); color: white;">Locked</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Code Section -->
+        <section class="progress-code-demo">
+            <h3>Save Your Progress</h3>
+            <p class="section-subtitle">Get a special code to continue exactly where you left off</p>
+            
+            <div class="retro-terminal">
+                <div class="terminal-header">
+                    <span class="terminal-title">🎮 Hampton Progress Generator</span>
+                </div>
+                <div class="terminal-content">
+                    <div class="code-line">
+                        <span class="prompt">$</span> generating progress code...
+                    </div>
+                    <div class="code-line">
+                        <span class="prompt">$</span> compressing 2 weeks of data...
+                    </div>
+                    <div class="code-line">
+                        <span class="prompt">$</span> your hampton code:
+                    </div>
+                    <div class="generated-code-display">
+                        <div class="code-label">Your Progress Code:</div>
+                        <div class="code-value">HAMPTON-DASH-W2M3-K9Q7-X8F2</div>
+                        <div class="code-breakdown">
+                            <span>DASH = Dashboard Project</span>
+                            <span>W2M3 = Week 2, Module 3</span>
+                            <span>K9Q7 = 9 modules, High quality</span>
+                            <span>X8F2 = Checksum</span>
+                        </div>
+                    </div>
+                    <div class="code-actions-demo">
+                        <button class="btn-retro">📋 Copy Code</button>
+                        <button class="btn-retro">💾 Save File</button>
+                        <button class="btn-retro">🔗 Share</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Showcase -->
+        <section class="achievements-demo">
+            <h3>Achievements & Badges</h3>
+            
+            <div class="achievement-grid">
+                <div class="achievement earned">
+                    <div class="achievement-icon">🎯</div>
+                    <div class="achievement-info">
+                        <h4>First Victory</h4>
+                        <p>Completed your first module</p>
+                        <small>Earned 2 days ago</small>
+                    </div>
+                </div>
+                
+                <div class="achievement earned">
+                    <div class="achievement-icon">⚡</div>
+                    <div class="achievement-info">
+                        <h4>Prompt Master</h4>
+                        <p>Created 10 perfect prompts in a row</p>
+                        <small>Earned 1 hour ago</small>
+                    </div>
+                </div>
+                
+                <div class="achievement earned">
+                    <div class="achievement-icon">🔥</div>
+                    <div class="achievement-info">
+                        <h4>Week Warrior</h4>
+                        <p>Completed an entire week</p>
+                        <small>Earned yesterday</small>
+                    </div>
+                </div>
+                
+                <div class="achievement locked">
+                    <div class="achievement-icon">💎</div>
+                    <div class="achievement-info">
+                        <h4>Git Guru</h4>
+                        <p>Master professional Git workflows</p>
+                        <small>Unlock in Week 3</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="achievement-stats">
+                <div class="stat">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Badges Earned</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">240</div>
+                    <div class="stat-label">XP Points</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Day Streak</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">2.1</div>
+                    <div class="stat-label">Hours Today</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="about-container">
+                <h2 class="about-title">About Project: Hampton</h2>
+                
+                <div class="about-content">
+                    <div class="about-intro">
+                        <h3>Why I Built This</h3>
+                        <p>
+                            Hi, I'm Joshua Walderbach, and I created Project: Hampton because I believe everyone should have access to the incredible power of AI-assisted coding. In an era where technology is evolving at lightning speed, the ability to build software with AI isn't just a skill – it's a superpower that should be democratized.
+                        </p>
+                        <p>
+                            My goal with this project is simple: to create the most comprehensive, accessible, and engaging platform for learning how to code with AI assistants. I want to take you from zero to building production-ready applications in just 30 days, using the same tools and techniques that professional developers are adopting today.
+                        </p>
+                    </div>
+                    
+                    <div class="hampton-tribute">
+                        <div class="tribute-header">
+                            <h3>In Honor of Tom Hampton</h3>
+                            <span class="tribute-subtitle">5th Grade Teacher, Cleveland Elementary, Cedar Rapids, IA</span>
+                        </div>
+                        
+                        <div class="tribute-content">
+                            <p>
+                                This project is lovingly named after Mr. Tom Hampton, my 5th grade teacher at Cleveland Elementary School in Cedar Rapids, Iowa. He holds a special place in my heart as not only the first positive male role model I ever had, but also as the teacher who truly saw me. Mr. Hampton was the first educator who understood that I needed to learn at my own pace—he let me soar when I was ready to run, and gently encouraged me when I struggled to find my footing.
+                            </p>
+                            <p>
+                                What made him extraordinary wasn't just his kindness and unwavering support, but the way he genuinely invested himself in every single student who walked through his classroom door. He had this remarkable gift for seeing the potential in each of us and nurturing it until we could see it in ourselves. He didn't just teach us lessons from textbooks; he taught us to believe we could become the best versions of ourselves.
+                            </p>
+                            <p>
+                                The true measure of his impact became clear many years later when I unexpectedly ran into him at a local pub. Without missing a beat, he remembered me—not just my name, but who I was as a person. As we caught up over the beer he insisted on buying, I realized that the caring teacher who had changed my life in 5th grade was still the same warm, generous soul who remembered a student decades later.
+                            </p>
+                            <p>
+                                This project carries his name because his influence carries forward in everything I do.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comprehensive Learning Features -->
+        <section id="learn" class="learning-features">
+            <h3>What You'll Master in 30 Days</h3>
+            
+            <div class="curriculum-overview">
+                <div class="curriculum-week">
+                    <div class="week-header">
+                        <h4>Days 1-7: Foundation & Setup</h4>
+                        <div class="week-status upcoming">🎯 Current</div>
+                    </div>
+                    <ul class="week-topics">
+                        <li>📝 Development environment setup</li>
+                        <li>📝 Understanding AI coding assistants</li>
+                        <li>📝 Basic prompt engineering</li>
+                        <li>📝 Project structure & planning</li>
+                    </ul>
+                </div>
+                
+                <div class="curriculum-week">
+                    <div class="week-header">
+                        <h4>Days 8-14: Core Development</h4>
+                        <div class="week-status locked">🔒 Locked</div>
+                    </div>
+                    <ul class="week-topics">
+                        <li>🔒 Building core functionality</li>
+                        <li>🔒 Advanced prompting strategies</li>
+                        <li>🔒 Git & version control</li>
+                        <li>🔒 Testing & debugging with AI</li>
+                    </ul>
+                </div>
+                
+                <div class="curriculum-week">
+                    <div class="week-header">
+                        <h4>Days 15-21: Advanced Features</h4>
+                        <div class="week-status locked">🔒 Locked</div>
+                    </div>
+                    <ul class="week-topics">
+                        <li>🔒 API integrations</li>
+                        <li>🔒 Database implementation</li>
+                        <li>🔒 Performance optimization</li>
+                        <li>🔒 Security best practices</li>
+                    </ul>
+                </div>
+                
+                <div class="curriculum-week">
+                    <div class="week-header">
+                        <h4>Days 22-30: Polish & Deploy</h4>
+                        <div class="week-status locked">🔒 Locked</div>
+                    </div>
+                    <ul class="week-topics">
+                        <li>🔒 UI/UX refinements</li>
+                        <li>🔒 Deployment strategies</li>
+                        <li>🔒 Documentation & portfolio</li>
+                        <li>🔒 Final project presentation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        // Tool Switcher
+        const toolButtons = document.querySelectorAll('.tool-option');
+        const body = document.body;
+        
+        toolButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                toolButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Update body data attribute
+                const tool = button.getAttribute('data-tool');
+                body.setAttribute('data-tool', tool);
+                
+                // Update UI text based on tool
+                updateToolSpecificContent(tool);
+            });
+        });
+        
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        themeToggle.addEventListener('change', () => {
+            const newTheme = themeToggle.checked ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            // Save preference
+            localStorage.setItem('theme', newTheme);
+        });
+        
+        // Load saved theme preference
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', savedTheme);
+        themeToggle.checked = savedTheme === 'dark';
+        
+        // Load saved tool preference
+        const savedTool = localStorage.getItem('tool') || 'claude-code';
+        body.setAttribute('data-tool', savedTool);
+        toolButtons.forEach(btn => {
+            if (btn.getAttribute('data-tool') === savedTool) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        
+        // Update tool-specific content
+        function updateToolSpecificContent(tool) {
+            // Save preference
+            localStorage.setItem('tool', tool);
+            
+            // Update any tool-specific text or features
+            const toolName = tool === 'claude-code' ? 'Claude Code' : 'Code Puppy';
+            console.log(`Switched to ${toolName}`);
+            
+            // You could update specific text elements here
+            // For example, updating installation instructions, examples, etc.
+        }
+        
+        // Project selection handler
+        function startProject(projectType) {
+            // Save selected project
+            localStorage.setItem('selectedProject', projectType);
+            
+            // Show project selection confirmation
+            const projectNames = {
+                'dashboard': 'Personal Dashboard App',
+                'blog': 'AI-Powered Blog Platform',
+                'automation': 'Automation Bot Suite'
+            };
+            
+            // Create modal or alert for now
+            const message = `Great choice! You've selected the ${projectNames[projectType]} project.\n\n` +
+                           `This will be your main project throughout the 30-day journey.\n\n` +
+                           `Next steps:\n` +
+                           `1. Review the curriculum in the Learn section\n` +
+                           `2. Set up your development environment\n` +
+                           `3. Begin with Day 1: Foundation & Setup\n\n` +
+                           `Your progress will be saved automatically!`;
+            
+            alert(message);
+            
+            // Scroll to learn section after alert
+            setTimeout(() => {
+                document.getElementById('learn').scrollIntoView({behavior: 'smooth'});
+            }, 100);
+            
+            // Update UI to show selected project (future enhancement)
+            updateProjectSelection(projectType);
+        }
+        
+        // Update UI to reflect selected project
+        function updateProjectSelection(projectType) {
+            // Remove any existing selection highlights
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.style.borderColor = '';
+                card.style.background = '';
+            });
+            
+            // Highlight selected project card
+            const cards = document.querySelectorAll('.project-card');
+            const projectIndex = projectType === 'dashboard' ? 0 : projectType === 'blog' ? 1 : 2;
+            if (cards[projectIndex]) {
+                cards[projectIndex].style.borderColor = 'var(--victory-gold)';
+                cards[projectIndex].style.background = 'linear-gradient(45deg, rgba(255, 215, 0, 0.05), rgba(255, 215, 0, 0.02))';
+            }
+        }
+        
+        // Load saved project selection on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedProject = localStorage.getItem('selectedProject');
+            if (savedProject) {
+                updateProjectSelection(savedProject);
+            }
+        });
+        
+        // Load progress from code
+        function loadProgress() {
+            const codeInput = document.getElementById('progress-code-input');
+            const code = codeInput.value.trim().toUpperCase();
+            
+            if (!code) {
+                alert('Please enter a progress code');
+                return;
+            }
+            
+            // Validate code format (HAMPTON-XXXX-XXXX-XXXX)
+            const codePattern = /^HAMPTON-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$/;
+            if (!codePattern.test(code)) {
+                alert('Invalid code format. Please enter a code like: HAMPTON-DASH-W2M3-K9Q7');
+                return;
+            }
+            
+            // Parse the code
+            const parts = code.split('-');
+            const projectCode = parts[1];
+            const progressCode = parts[2];
+            const checksum = parts[3];
+            
+            // Decode project type
+            const projectMap = {
+                'DASH': 'dashboard',
+                'BLOG': 'blog',
+                'AUTO': 'automation'
+            };
+            
+            const project = projectMap[projectCode] || 'dashboard';
+            
+            // Decode progress (simplified example)
+            const dayMatch = progressCode.match(/D(\d+)/);
+            const moduleMatch = progressCode.match(/M(\d+)/);
+            
+            const day = dayMatch ? parseInt(dayMatch[1]) : 1;
+            const module = moduleMatch ? parseInt(moduleMatch[1]) : 1;
+            
+            // Save progress to localStorage
+            localStorage.setItem('selectedProject', project);
+            localStorage.setItem('currentDay', day);
+            localStorage.setItem('currentModule', module);
+            localStorage.setItem('progressCode', code);
+            
+            // Show success message
+            alert(`Welcome back! Your progress has been loaded:\n\n` +
+                  `Project: ${projectMap[projectCode] ? projectNames[project] : 'Unknown'}\n` +
+                  `Current Day: ${day} of 30\n` +
+                  `Modules Completed: ${module}\n\n` +
+                  `Redirecting to your dashboard...`);
+            
+            // Update UI
+            updateProjectSelection(project);
+            
+            // Scroll to progress section
+            setTimeout(() => {
+                document.getElementById('progress').scrollIntoView({behavior: 'smooth'});
+            }, 100);
+            
+            // Clear the input
+            codeInput.value = '';
+        }
+        
+        // Generate progress code (for saving)
+        function generateProgressCode() {
+            const project = localStorage.getItem('selectedProject') || 'dashboard';
+            const day = localStorage.getItem('currentDay') || '1';
+            const module = localStorage.getItem('currentModule') || '0';
+            
+            // Project codes
+            const projectCodes = {
+                'dashboard': 'DASH',
+                'blog': 'BLOG',
+                'automation': 'AUTO'
+            };
+            
+            const projectCode = projectCodes[project];
+            const progressCode = `D${day.padStart(2, '0')}M${module}`;
+            
+            // Simple checksum (in real app, would be more sophisticated)
+            const checksumSource = `${projectCode}${progressCode}`;
+            let checksum = '';
+            for (let i = 0; i < 4; i++) {
+                checksum += String.fromCharCode(65 + Math.floor(Math.random() * 26));
+            }
+            
+            return `HAMPTON-${projectCode}-${progressCode}-${checksum}`;
+        }
+    </script>
+</body>
+</html>

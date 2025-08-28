@@ -1,0 +1,67 @@
+# Project Hampton Scripts Configuration
+
+project:
+  name: "Project Hampton"
+  version: "0.0.2"
+  description: "Learn AI-Assisted Development Through Building Real Projects"
+  
+paths:
+  content: "content"
+  data: "data"
+  exports: "data/exports"
+  backups: "data/backups"
+  analytics: "data/analytics"
+  logs: "logs"
+  
+analytics:
+  track_anonymous: true
+  export_format: "json"
+  retention_days: 90
+  
+deployment:
+  platforms: 
+    - "github-pages"
+    - "netlify"
+    - "vercel"
+  optimize_assets: true
+  minify_code: true
+  
+content:
+  weeks: 8
+  modules_per_week: 5
+  projects:
+    - id: "dashboard"
+      name: "Personal Dashboard"
+      icon: "📊"
+    - id: "blog"
+      name: "AI Blog Platform"
+      icon: "✍️"
+    - id: "automation"
+      name: "Automation Bot Suite"
+      icon: "🤖"
+      
+gamification:
+  xp_per_module: 100
+  xp_per_week: 500
+  achievement_xp: 50
+  max_level: 30
+  
+progress_codes:
+  format: "HAMPTON-{PROJECT}-W{WEEK}M{MODULE}-{CHECK}-{DATA}"
+  encoding: "base36"
+  
+backup:
+  auto_backup: true
+  frequency: "daily"
+  max_backups: 30
+  compress: true
+  
+notifications:
+  email_enabled: false
+  discord_webhook: ""
+  slack_webhook: ""
+  
+api_keys:
+  openai: "${OPENAI_API_KEY}"
+  anthropic: "${ANTHROPIC_API_KEY}"
+  github: "${GITHUB_TOKEN}"

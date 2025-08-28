@@ -1,0 +1,311 @@
+{
+  "week": 1,
+  "title": "AI-Assisted Development Fundamentals",
+  "description": "Master the basics of working with AI coding assistants and set up your development environment",
+  "modules": [
+    {
+      "id": "w1m1",
+      "number": 1,
+      "title": "Introduction to Vibe Coding",
+      "duration": "45 minutes",
+      "difficulty": "beginner",
+      "xp": 100,
+      "skills": ["ai_prompting"],
+      "objectives": [
+        "Understand what vibe coding means",
+        "Learn how AI assistants can accelerate development",
+        "Set up Claude Code or Code Puppy",
+        "Write your first AI-assisted code"
+      ],
+      "content": {
+        "introduction": "Welcome to the world of AI-assisted development! In this module, you'll learn how to 'vibe' with AI tools to build software faster and more efficiently than ever before.",
+        "video": null,
+        "reading": {
+          "title": "The Art of AI Collaboration",
+          "sections": [
+            {
+              "heading": "What is Vibe Coding?",
+              "content": "Vibe coding is the practice of building software through natural language conversations with AI assistants. Instead of writing every line of code manually, you describe what you want to build, and the AI helps generate, debug, and improve the code."
+            },
+            {
+              "heading": "Why AI-Assisted Development?",
+              "content": "AI tools can help you: write boilerplate code faster, debug complex issues, learn new languages and frameworks, refactor existing code, and generate tests and documentation."
+            }
+          ]
+        },
+        "exercises": [
+          {
+            "title": "Hello AI World",
+            "description": "Use your AI assistant to create a 'Hello World' program in 3 different languages",
+            "hints": [
+              "Try asking: 'Create a Hello World program in Python'",
+              "Then ask: 'Now convert this to JavaScript'",
+              "Finally: 'Show me the same in Go'"
+            ],
+            "solution": "Ask your AI: 'Create Hello World programs in Python, JavaScript, and Go with explanations'",
+            "xp": 25
+          },
+          {
+            "title": "Code Explanation",
+            "description": "Find a piece of code online and ask your AI to explain how it works",
+            "hints": [
+              "Copy any code snippet from GitHub",
+              "Ask: 'Can you explain what this code does line by line?'",
+              "Follow up with: 'How could this be improved?'"
+            ],
+            "xp": 25
+          }
+        ],
+        "project": {
+          "title": "Your First AI Collaboration",
+          "description": "Work with your AI to build a simple calculator that can add, subtract, multiply, and divide",
+          "requirements": [
+            "Support basic arithmetic operations",
+            "Handle edge cases (division by zero)",
+            "Include a simple user interface (CLI is fine)",
+            "Add at least one advanced feature (square root, percentages, etc.)"
+          ],
+          "starter_prompts": [
+            "Help me build a calculator program",
+            "Add error handling for division by zero",
+            "How can I make the interface more user-friendly?"
+          ],
+          "xp": 50
+        }
+      }
+    },
+    {
+      "id": "w1m2",
+      "number": 2,
+      "title": "Effective Prompting Strategies",
+      "duration": "60 minutes",
+      "difficulty": "beginner",
+      "xp": 100,
+      "skills": ["ai_prompting"],
+      "objectives": [
+        "Master the art of writing clear, effective prompts",
+        "Learn different prompting patterns",
+        "Understand how to iterate and refine requests",
+        "Debug and troubleshoot with AI"
+      ],
+      "content": {
+        "introduction": "The key to successful AI-assisted development is knowing how to communicate your needs clearly. This module teaches you proven prompting strategies.",
+        "reading": {
+          "title": "Prompting Patterns and Best Practices",
+          "sections": [
+            {
+              "heading": "The Anatomy of a Good Prompt",
+              "content": "A good prompt includes: Clear context, Specific requirements, Expected output format, and Examples when helpful."
+            },
+            {
+              "heading": "Common Prompting Patterns",
+              "content": "1. The Specification Pattern: 'Create a function that...' 2. The Debugging Pattern: 'This code has a bug...' 3. The Refactoring Pattern: 'Improve this code by...' 4. The Learning Pattern: 'Explain how...'"
+            }
+          ]
+        },
+        "exercises": [
+          {
+            "title": "Prompt Refinement",
+            "description": "Start with a vague prompt and iteratively make it better",
+            "initial_prompt": "Make a website",
+            "refined_prompt": "Create a responsive portfolio website with a navigation bar, hero section, projects grid, and contact form using HTML, CSS, and vanilla JavaScript",
+            "xp": 30
+          },
+          {
+            "title": "Debugging Challenge",
+            "description": "Use AI to find and fix bugs in provided code",
+            "code": "function calculateAverage(numbers) {\n  let sum = 0;\n  for (let i = 0; i <= numbers.length; i++) {\n    sum += numbers[i];\n  }\n  return sum / numbers.length;\n}",
+            "bugs": ["Off-by-one error in loop", "No handling for empty array"],
+            "xp": 35
+          }
+        ]
+      }
+    },
+    {
+      "id": "w1m3",
+      "number": 3,
+      "title": "Setting Up Your Development Environment",
+      "duration": "90 minutes",
+      "difficulty": "beginner",
+      "xp": 100,
+      "skills": ["git", "deployment"],
+      "objectives": [
+        "Install necessary development tools",
+        "Set up version control with Git",
+        "Configure your AI assistant",
+        "Create your project repository"
+      ],
+      "content": {
+        "introduction": "A proper development environment is crucial for productive coding. Let's set up everything you need for your 8-week journey.",
+        "checklist": [
+          {
+            "item": "Install a code editor (VS Code recommended)",
+            "command": null,
+            "verified": false
+          },
+          {
+            "item": "Install Git",
+            "command": "git --version",
+            "verified": false
+          },
+          {
+            "item": "Install Node.js and npm",
+            "command": "node --version && npm --version",
+            "verified": false
+          },
+          {
+            "item": "Install Claude Code or Code Puppy",
+            "command": "claude-code --version",
+            "verified": false
+          },
+          {
+            "item": "Create a GitHub account",
+            "command": null,
+            "verified": false
+          },
+          {
+            "item": "Set up SSH keys for GitHub",
+            "command": "ssh -T git@github.com",
+            "verified": false
+          }
+        ],
+        "project": {
+          "title": "Initialize Your Project Repository",
+          "steps": [
+            "Create a new repository on GitHub",
+            "Clone it to your local machine",
+            "Create a README.md file",
+            "Make your first commit",
+            "Push to GitHub"
+          ],
+          "xp": 40
+        }
+      }
+    },
+    {
+      "id": "w1m4",
+      "number": 4,
+      "title": "Understanding Your Chosen Project Path",
+      "duration": "60 minutes",
+      "difficulty": "beginner",
+      "xp": 100,
+      "skills": ["ai_prompting"],
+      "objectives": [
+        "Deep dive into your selected project",
+        "Understand the technical requirements",
+        "Plan your 8-week roadmap",
+        "Set up project structure"
+      ],
+      "content": {
+        "paths": {
+          "dashboard": {
+            "title": "Personal Dashboard Project",
+            "overview": "Build a comprehensive personal dashboard with weather, todos, calendar, and data visualizations",
+            "tech_stack": ["HTML", "CSS", "JavaScript", "Chart.js", "Local Storage", "APIs"],
+            "week_preview": {
+              "week2": "HTML/CSS layout and responsive design",
+              "week3": "JavaScript fundamentals and DOM manipulation",
+              "week4": "Working with APIs (weather, news)",
+              "week5": "Data visualization with Chart.js",
+              "week6": "Local storage and state management",
+              "week7": "Advanced features and optimizations",
+              "week8": "Testing, deployment, and polish"
+            }
+          },
+          "blog": {
+            "title": "AI-Powered Blog Platform",
+            "overview": "Create a modern blog with AI-assisted writing, automated SEO, and content management",
+            "tech_stack": ["HTML", "CSS", "JavaScript", "Markdown", "Static Site Generator", "AI APIs"],
+            "week_preview": {
+              "week2": "Blog layout and typography",
+              "week3": "Markdown parsing and rendering",
+              "week4": "Static site generation basics",
+              "week5": "AI integration for writing assistance",
+              "week6": "SEO optimization and metadata",
+              "week7": "Comments and social features",
+              "week8": "Deployment and content management"
+            }
+          },
+          "automation": {
+            "title": "Automation Bot Suite",
+            "overview": "Build Discord/Slack bots and web scrapers for various automation tasks",
+            "tech_stack": ["JavaScript", "Node.js", "Discord.js", "Puppeteer", "APIs", "Webhooks"],
+            "week_preview": {
+              "week2": "Node.js and npm fundamentals",
+              "week3": "Building your first Discord bot",
+              "week4": "Web scraping with Puppeteer",
+              "week5": "Task scheduling and automation",
+              "week6": "Database integration",
+              "week7": "Advanced bot commands and features",
+              "week8": "Deployment and monitoring"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "w1m5",
+      "number": 5,
+      "title": "Week 1 Project: Foundation",
+      "duration": "120 minutes",
+      "difficulty": "beginner",
+      "xp": 150,
+      "skills": ["git", "ai_prompting"],
+      "objectives": [
+        "Complete your first week milestone",
+        "Build the foundation of your project",
+        "Practice git workflow",
+        "Submit your first week's work"
+      ],
+      "content": {
+        "project_requirements": {
+          "dashboard": [
+            "Create basic HTML structure",
+            "Add CSS reset and variables",
+            "Set up project folders",
+            "Create responsive grid layout",
+            "Add navigation header",
+            "Initialize git repository"
+          ],
+          "blog": [
+            "Set up blog file structure",
+            "Create homepage template",
+            "Add basic styling",
+            "Write your first blog post (markdown)",
+            "Set up build script",
+            "Initialize git repository"
+          ],
+          "automation": [
+            "Initialize Node.js project",
+            "Install basic dependencies",
+            "Create bot configuration file",
+            "Set up environment variables",
+            "Write hello world bot command",
+            "Initialize git repository"
+          ]
+        },
+        "submission": {
+          "checklist": [
+            "All code committed to GitHub",
+            "README updated with project description",
+            "At least 5 meaningful commits",
+            "Code is properly formatted",
+            "No sensitive data in repository"
+          ],
+          "bonus_challenges": [
+            "Add a creative feature not in requirements (+50 XP)",
+            "Write comprehensive code comments (+25 XP)",
+            "Create a project roadmap document (+25 XP)"
+          ]
+        }
+      }
+    }
+  ],
+  "week_summary": {
+    "total_xp": 550,
+    "skills_developed": ["ai_prompting", "git", "deployment"],
+    "projects_completed": 1,
+    "estimated_time": "6-8 hours",
+    "achievement_available": "Week 1 Warrior"
+  }
+}

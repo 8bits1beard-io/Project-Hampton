@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:cleveland.crschools.us)",
+      "Bash(git add:*)",
+      "Bash(dir)",
+      "Bash(npm install)",
+      "Bash(npm start)",
+      "Bash(set PORT=3001)",
+      "Bash($env:PORT=3001)",
+      "Bash(taskkill:*)",
+      "Bash(git commit:*)",
+      "Bash(del .gitindex.lock)",
+      "Bash(rm:*)",
+      "Bash(git push:*)",
+      "Bash(if not exist \"C:\\Users\\deuse\\OneDrive\\Documents\\GitHub\\project-template\" mkdir \"C:\\Users\\deuse\\OneDrive\\Documents\\GitHub\\project-template\")",
+      "Bash(powershell:*)",
+      "Bash(xcopy:*)",
+      "Read(/C:\\Users\\deuse\\OneDrive\\Documents\\GitHub\\project-template/**)",
+      "Bash(mkdir:*)",
+      "Bash(copy index.html HTML)",
+      "Bash(cp:*)",
+      "Bash(python:*)",
+      "Bash(timeout:*)",
+      "Bash(npm run build:*)",
+      "Bash(git reset:*)",
+      "Bash(git checkout:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

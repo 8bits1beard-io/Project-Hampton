@@ -1,0 +1,203 @@
+{
+  "project": "Microsoft Graph Device Analytics Dashboard",
+  "description": "Build an enterprise-grade analytics dashboard that connects to Microsoft Graph API and Intune to visualize device management data, compliance status, and security insights",
+  "icon": "📊",
+  "skills_learned": [
+    "Microsoft Graph API Integration",
+    "Azure AD App Registration",
+    "OAuth 2.0 Authentication",
+    "MSAL.js Implementation",
+    "Enterprise Data Visualization",
+    "Chart.js Advanced Features",
+    "Intune API Integration",
+    "Device Management Analytics",
+    "Security Compliance Reporting",
+    "Multi-Tenant Architecture"
+  ],
+  "final_deliverable": "A complete enterprise dashboard showing real-time device analytics, compliance status, security insights, and hardware inventory from Microsoft Graph and Intune APIs",
+  "weeks": {
+    "week1": {
+      "title": "Foundation & Authentication",
+      "description": "Set up Azure AD integration and build the authentication foundation",
+      "modules": [
+        {
+          "title": "Azure AD & Graph API Fundamentals",
+          "topics": ["Graph API architecture", "Permission models", "Rate limiting", "API explorer"]
+        },
+        {
+          "title": "App Registration & Authentication",
+          "topics": ["Azure AD app registration", "API permissions", "OAuth 2.0 flow", "MSAL.js setup"]
+        },
+        {
+          "title": "Token Management & Security",
+          "topics": ["Token acquisition", "Refresh tokens", "Security best practices", "Error handling"]
+        },
+        {
+          "title": "Device Data Exploration",
+          "topics": ["Device endpoints", "Available properties", "Filtering options", "Pagination"]
+        },
+        {
+          "title": "Week 1 Project",
+          "topics": ["Working authentication with device data retrieval"]
+        }
+      ]
+    },
+    "week2": {
+      "title": "Core Analytics & Visualization",
+      "description": "Implement device analytics and create interactive visualizations",
+      "modules": [
+        {
+          "title": "Operating System Analytics",
+          "topics": ["OS version tracking", "Distribution analysis", "Support lifecycle", "Patch levels"]
+        },
+        {
+          "title": "Hardware Analytics",
+          "topics": ["Processor families", "Memory analysis", "Storage insights", "Hardware age"]
+        },
+        {
+          "title": "Chart.js Integration",
+          "topics": ["Library setup", "Responsive charts", "Interactive elements", "Theming"]
+        },
+        {
+          "title": "Advanced Visualizations",
+          "topics": ["Pie charts", "Bar charts", "Line graphs", "Gauge charts"]
+        },
+        {
+          "title": "Week 2 Project",
+          "topics": ["Interactive dashboard with OS and hardware analytics"]
+        }
+      ]
+    },
+    "week3": {
+      "title": "Advanced Features & Integration",
+      "description": "Add advanced features, Intune integration, and real-time capabilities",
+      "modules": [
+        {
+          "title": "Intune API Integration",
+          "topics": ["Intune endpoints", "Policy data", "Compliance status", "App inventory"]
+        },
+        {
+          "title": "Real-Time Updates",
+          "topics": ["Polling strategies", "WebSocket connections", "Data synchronization", "Performance"]
+        },
+        {
+          "title": "Advanced Filtering & Search",
+          "topics": ["Multi-criteria filters", "Search functionality", "State management", "URL parameters"]
+        },
+        {
+          "title": "Security Analytics",
+          "topics": ["Compliance scoring", "Threat indicators", "BitLocker status", "Defender status"]
+        },
+        {
+          "title": "Week 3 Project",
+          "topics": ["Advanced dashboard with Intune data and security analytics"]
+        }
+      ]
+    },
+    "week4": {
+      "title": "Enterprise Features & Deployment",
+      "description": "Add enterprise features, multi-tenant support, and deploy to production",
+      "modules": [
+        {
+          "title": "Multi-Tenant Support",
+          "topics": ["Tenant switching", "Cross-tenant comparison", "Tenant configurations", "Data isolation"]
+        },
+        {
+          "title": "Reporting & Export",
+          "topics": ["PDF generation", "CSV export", "Scheduled reports", "Email integration"]
+        },
+        {
+          "title": "Performance & Monitoring",
+          "topics": ["Application Insights", "Performance metrics", "Error tracking", "User analytics"]
+        },
+        {
+          "title": "Production Deployment",
+          "topics": ["Azure App Service", "Security hardening", "Monitoring setup", "CI/CD pipeline"]
+        },
+        {
+          "title": "Final Project",
+          "topics": ["Complete enterprise-ready Microsoft Graph analytics dashboard"]
+        }
+      ]
+    }
+  },
+  "learning_outcomes": [
+    "Master Microsoft Graph API integration",
+    "Implement enterprise authentication with Azure AD",
+    "Build sophisticated data visualizations",
+    "Create real-time dashboard applications",
+    "Understand device management analytics",
+    "Implement security compliance reporting",
+    "Deploy enterprise web applications",
+    "Handle multi-tenant architectures"
+  ],
+  "dashboard_features": {
+    "core": [
+      "Device inventory and details",
+      "Operating system distribution",
+      "Hardware specifications analysis",
+      "Real-time data updates"
+    ],
+    "analytics": [
+      "OS version compliance tracking",
+      "Hardware age and lifecycle analysis",
+      "Security posture scoring",
+      "Application inventory insights",
+      "Trend analysis and forecasting"
+    ],
+    "intune": [
+      "Policy compliance status",
+      "Configuration profile deployment",
+      "Application management analytics",
+      "Security baseline compliance"
+    ],
+    "enterprise": [
+      "Multi-tenant support",
+      "Role-based access control",
+      "Automated reporting",
+      "Data export capabilities",
+      "Audit logging",
+      "Performance monitoring"
+    ]
+  },
+  "technical_architecture": {
+    "frontend": {
+      "framework": "Vanilla JavaScript / React (optional)",
+      "visualization": "Chart.js",
+      "styling": "CSS3 with CSS Grid/Flexbox",
+      "auth": "MSAL.js 2.0"
+    },
+    "backend": {
+      "apis": "Microsoft Graph API, Intune API",
+      "authentication": "Azure AD OAuth 2.0",
+      "caching": "Browser localStorage/sessionStorage",
+      "real_time": "Polling or SignalR"
+    },
+    "deployment": {
+      "platform": "Azure App Service",
+      "monitoring": "Application Insights",
+      "security": "Azure Key Vault for secrets",
+      "ci_cd": "GitHub Actions"
+    }
+  },
+  "sample_insights": {
+    "device_analytics": [
+      "Windows 11 adoption rate: 65%",
+      "Devices requiring security updates: 23",
+      "Average hardware age: 3.2 years",
+      "Non-compliant devices: 8"
+    ],
+    "security_metrics": [
+      "BitLocker encryption: 87% enabled",
+      "Windows Defender active: 98%",
+      "Policy compliance score: 92/100",
+      "Security incidents: 2 this month"
+    ],
+    "hardware_trends": [
+      "Most common processor: Intel Core i7",
+      "Average RAM: 16GB",
+      "SSD adoption: 78%",
+      "Devices due for refresh: 45"
+    ]
+  }
+}

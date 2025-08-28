@@ -1,0 +1,176 @@
+/* Notification System Styles */
+
+.notification-container {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    pointer-events: none;
+}
+
+.notification {
+    background: var(--surface-bg);
+    border-radius: var(--radius-md);
+    padding: var(--space-md) var(--space-lg);
+    box-shadow: var(--shadow-lg);
+    min-width: 300px;
+    max-width: 400px;
+    transform: translateX(420px);
+    transition: transform var(--transition-base);
+    pointer-events: all;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.notification-icon {
+    font-size: 1.5rem;
+}
+
+.notification-message {
+    flex: 1;
+    color: var(--text-primary);
+}
+
+/* Notification Types */
+.notification-success {
+    border-left: 4px solid #10B981;
+}
+
+.notification-error {
+    border-left: 4px solid #EF4444;
+}
+
+.notification-warning {
+    border-left: 4px solid #F59E0B;
+}
+
+.notification-info {
+    border-left: 4px solid var(--primary-color);
+}
+
+.notification-achievement {
+    border-left: 4px solid var(--victory-gold);
+    background: linear-gradient(135deg, var(--surface-bg), rgba(255, 215, 0, 0.1));
+}
+
+.notification-xp {
+    border-left: 4px solid var(--victory-gold);
+}
+
+/* Achievement Notification */
+.achievement-notification {
+    background: linear-gradient(135deg, var(--surface-bg), rgba(255, 215, 0, 0.1));
+    border: 2px solid var(--victory-gold);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    min-width: 350px;
+    transform: translateX(420px) scale(0.9);
+    transition: all var(--transition-base);
+    pointer-events: all;
+}
+
+.achievement-notification.show {
+    transform: translateX(0) scale(1);
+}
+
+.achievement-unlock {
+    text-align: center;
+}
+
+.achievement-header {
+    margin-bottom: var(--space-md);
+}
+
+.achievement-label {
+    color: var(--victory-gold);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: var(--font-size-sm);
+    letter-spacing: 1px;
+}
+
+.achievement-body {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.achievement-notification .achievement-icon {
+    font-size: 3rem;
+}
+
+.achievement-details {
+    flex: 1;
+    text-align: left;
+}
+
+.achievement-name {
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.achievement-description {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-xs);
+}
+
+.achievement-xp {
+    color: var(--victory-gold);
+    font-weight: bold;
+}
+
+/* Progress Notification */
+.notification-progress {
+    min-width: 350px;
+}
+
+.progress-content {
+    width: 100%;
+}
+
+.progress-message {
+    display: block;
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+}
+
+.progress-bar {
+    height: 8px;
+    background: var(--storm-gray);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transition: width var(--transition-base);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .notification-container {
+        top: 80px;
+        right: 10px;
+        left: 10px;
+    }
+    
+    .notification,
+    .achievement-notification {
+        max-width: 100%;
+    }
+}

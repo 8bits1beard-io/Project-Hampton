@@ -1,0 +1,33 @@
+/* Design System Variables */
+:root {
+  /* === COLORS === */
+  /* Cleveland Elementary Base Colors */
+  --color-navy: #001689;
+  --color-periwinkle: #a0aef6;
+  --color-white: #ffffff;
+  --color-gray: #abb8c3;
+  --color-gold: #FFD700;
+  --color-green: #10B981;
+  --color-coral: #FF6B6B;
+  --color-midnight: #0F172A;
+  
+  /* Semantic Colors */
+  --color-primary: var(--color-navy);
+  --color-primary-light: var(--color-periwinkle);
+  --color-secondary: var(--color-gold);
+  --color-success: var(--color-green);
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+  --color-info: #3B82F6;
+  
+  /* Text Colors */
+  --color-text-primary: var(--color-midnight);
+  --color-text-secondary: #64748B;
+  --color-text-muted: #94A3B8;
+  --color-text-inverse: var(--color-white);
+  
+  /* Background Colors */
+  --color-bg-primary: var(--color-white);
+  --color-bg-secondary: #F8FAFC;
+  --color-bg-muted: #F1F5F9;
+  --color-bg-overlay: rgba(0, 0, 0, 0.5);\n  \n  /* Border Colors */\n  --color-border: #E2E8F0;\n  --color-border-muted: #F1F5F9;\n  --color-border-focus: var(--color-primary);\n  \n  /* === SPACING === */\n  --space-1: 0.25rem;   /* 4px */\n  --space-2: 0.5rem;    /* 8px */\n  --space-3: 0.75rem;   /* 12px */\n  --space-4: 1rem;      /* 16px */\n  --space-5: 1.25rem;   /* 20px */\n  --space-6: 1.5rem;    /* 24px */\n  --space-8: 2rem;      /* 32px */\n  --space-10: 2.5rem;   /* 40px */\n  --space-12: 3rem;     /* 48px */\n  --space-16: 4rem;     /* 64px */\n  --space-20: 5rem;     /* 80px */\n  \n  /* === TYPOGRAPHY === */\n  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;\n  --font-family-mono: 'SF Mono', Monaco, Inconsolata, 'Roboto Mono', monospace;\n  \n  /* Font Sizes */\n  --font-size-xs: 0.75rem;     /* 12px */\n  --font-size-sm: 0.875rem;    /* 14px */\n  --font-size-base: 1rem;      /* 16px */\n  --font-size-lg: 1.125rem;    /* 18px */\n  --font-size-xl: 1.25rem;     /* 20px */\n  --font-size-2xl: 1.5rem;     /* 24px */\n  --font-size-3xl: 1.875rem;   /* 30px */\n  --font-size-4xl: 2.25rem;    /* 36px */\n  --font-size-5xl: 3rem;       /* 48px */\n  \n  /* Font Weights */\n  --font-weight-light: 300;\n  --font-weight-normal: 400;\n  --font-weight-medium: 500;\n  --font-weight-semibold: 600;\n  --font-weight-bold: 700;\n  --font-weight-extrabold: 800;\n  \n  /* Line Heights */\n  --line-height-tight: 1.25;\n  --line-height-snug: 1.375;\n  --line-height-normal: 1.5;\n  --line-height-relaxed: 1.625;\n  --line-height-loose: 2;\n  \n  /* === BORDERS === */\n  --border-width: 1px;\n  --border-width-2: 2px;\n  --border-width-4: 4px;\n  \n  /* Border Radius */\n  --radius-none: 0;\n  --radius-sm: 0.125rem;   /* 2px */\n  --radius-base: 0.25rem;  /* 4px */\n  --radius-md: 0.375rem;   /* 6px */\n  --radius-lg: 0.5rem;     /* 8px */\n  --radius-xl: 0.75rem;    /* 12px */\n  --radius-2xl: 1rem;      /* 16px */\n  --radius-full: 9999px;\n  \n  /* === SHADOWS === */\n  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);\n  --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);\n  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);\n  \n  /* === TRANSITIONS === */\n  --transition-fast: 150ms ease;\n  --transition-base: 300ms ease;\n  --transition-slow: 500ms ease;\n  \n  /* === Z-INDEX === */\n  --z-dropdown: 1000;\n  --z-sticky: 1020;\n  --z-fixed: 1030;\n  --z-modal-backdrop: 1040;\n  --z-modal: 1050;\n  --z-popover: 1060;\n  --z-tooltip: 1070;\n}\n\n/* === THEME VARIANTS === */\n/* Claude Code Theme (Default) */\n[data-tool=\"claude\"] {\n  --color-primary: var(--color-navy);\n  --color-primary-light: var(--color-periwinkle);\n}\n\n/* Code Puppy Theme */\n[data-tool=\"puppy\"] {\n  --color-primary: #0D7377;\n  --color-primary-light: #14FFEC;\n}\n\n/* === DARK MODE === */\n[data-theme=\"dark\"] {\n  --color-text-primary: var(--color-white);\n  --color-text-secondary: #CBD5E1;\n  --color-text-muted: #64748B;\n  \n  --color-bg-primary: #1E293B;\n  --color-bg-secondary: #0F172A;\n  --color-bg-muted: #334155;\n  \n  --color-border: #334155;\n  --color-border-muted: #475569;\n}\n\n[data-theme=\"dark\"][data-tool=\"claude\"] {\n  --color-primary: #3B82F6;\n  --color-primary-light: #60A5FA;\n}\n\n[data-theme=\"dark\"][data-tool=\"puppy\"] {\n  --color-primary: #14B8A6;\n  --color-primary-light: #5EEAD4;\n}

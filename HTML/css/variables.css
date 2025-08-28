@@ -1,0 +1,98 @@
+/* CSS Variables and Theming */
+
+:root {
+    /* Cleveland Elementary Base Colors */
+    --hampton-navy: #001689;
+    --soft-periwinkle: #a0aef6;
+    --cloud-white: #ffffff;
+    --storm-gray: #abb8c3;
+    --victory-gold: #FFD700;
+    --code-green: #10B981;
+    --warm-coral: #FF6B6B;
+    --midnight: #0F172A;
+    
+    /* Active Theme Colors - Default to Claude Code */
+    --primary-color: #001689;
+    --secondary-color: #a0aef6;
+    --bg-gradient-start: #001689;
+    --bg-gradient-end: #a0aef6;
+    --text-primary: #0F172A;
+    --text-secondary: #64748b;
+    --surface-bg: #ffffff;
+    --surface-border: #a0aef6;
+    
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-2xl: 4rem;
+    
+    /* Typography */
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 3rem;
+    
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    --radius-full: 9999px;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-base: 300ms ease;
+    --transition-slow: 500ms ease;
+}
+
+/* Claude Code Theme */
+[data-tool="claude-code"] {
+    --primary-color: #001689;
+    --secondary-color: #a0aef6;
+    --bg-gradient-start: #001689;
+    --bg-gradient-end: #a0aef6;
+    --accent-color: #FFD700;
+}
+
+/* Code Puppy Theme - Professional Teal */
+[data-tool="code-puppy"] {
+    --primary-color: #0D7377;
+    --secondary-color: #14FFEC;
+    --bg-gradient-start: #0D7377;
+    --bg-gradient-end: #32E0C4;
+    --accent-color: #FFD700;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+    --surface-bg: #1a1a2e;
+    --surface-border: rgba(255, 255, 255, 0.2);
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --cloud-white: #2a2a3e;
+    --storm-gray: #8a8a8a;
+    --hampton-navy: #ffffff;
+}
+
+[data-theme="dark"][data-tool="claude-code"] {
+    --bg-gradient-start: #0a0e27;
+    --bg-gradient-end: #1a237e;
+}
+
+[data-theme="dark"][data-tool="code-puppy"] {
+    --bg-gradient-start: #0a3d3f;
+    --bg-gradient-end: #1a6b5c;
+}
