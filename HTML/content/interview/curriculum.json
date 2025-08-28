@@ -1,0 +1,347 @@
+{
+  "title": "AI Job Interview Simulator",
+  "description": "Build an AI-powered interview preparation platform with job description analysis, realistic simulations, and personalized feedback",
+  "days": {
+    "day1": {
+      "title": "Project Planning & AI API Setup",
+      "lessons": [
+        "Understanding interview simulation requirements",
+        "OpenAI API registration and setup",
+        "Project architecture planning",
+        "Development environment configuration"
+      ],
+      "deliverable": "Project setup with OpenAI API connection",
+      "xp": 150
+    },
+    "day2": {
+      "title": "Job Description Parser Design",
+      "lessons": [
+        "Text parsing strategies",
+        "Job requirement extraction logic",
+        "Skills and qualifications identification",
+        "Company research integration planning"
+      ],
+      "deliverable": "Job description analysis system design",
+      "xp": 200
+    },
+    "day3": {
+      "title": "Database Schema & User Profiles",
+      "lessons": [
+        "User profile data structure",
+        "Interview session storage",
+        "Job description database",
+        "Response history tracking"
+      ],
+      "deliverable": "Complete database schema implementation",
+      "xp": 200
+    },
+    "day4": {
+      "title": "React Frontend Foundation",
+      "lessons": [
+        "React app initialization",
+        "Component hierarchy design",
+        "Routing for multi-step interviews",
+        "State management with Context API"
+      ],
+      "deliverable": "React frontend with basic structure",
+      "xp": 200
+    },
+    "day5": {
+      "title": "Job Upload & Analysis Interface",
+      "lessons": [
+        "File upload component",
+        "Job description input forms",
+        "PDF text extraction",
+        "URL scraping for job postings"
+      ],
+      "deliverable": "Working job description upload system",
+      "xp": 250
+    },
+    "day6": {
+      "title": "AI Prompt Engineering",
+      "lessons": [
+        "Interview question generation prompts",
+        "Context-aware questioning",
+        "Follow-up question logic",
+        "Behavioral question templates"
+      ],
+      "deliverable": "AI prompt system for question generation",
+      "xp": 300
+    },
+    "day7": {
+      "title": "Week 1 Review & Testing",
+      "lessons": [
+        "API integration testing",
+        "Prompt effectiveness evaluation",
+        "UI/UX review",
+        "Performance baseline"
+      ],
+      "deliverable": "Tested foundation with AI integration",
+      "xp": 300
+    },
+    "day8": {
+      "title": "Interview Session Management",
+      "lessons": [
+        "Session state management",
+        "Question flow control",
+        "Timer implementation",
+        "Progress tracking"
+      ],
+      "deliverable": "Complete session management system",
+      "xp": 250
+    },
+    "day9": {
+      "title": "Real-time Interview Interface",
+      "lessons": [
+        "Chat-style interview UI",
+        "Response input validation",
+        "Thinking time indicators",
+        "Question navigation"
+      ],
+      "deliverable": "Interactive interview interface",
+      "xp": 250
+    },
+    "day10": {
+      "title": "AI Response Analysis",
+      "lessons": [
+        "Answer evaluation prompts",
+        "Scoring rubric implementation",
+        "Strength/weakness identification",
+        "STAR method detection"
+      ],
+      "deliverable": "AI-powered response analysis system",
+      "xp": 300
+    },
+    "day11": {
+      "title": "Voice Integration",
+      "lessons": [
+        "Web Speech API integration",
+        "Speech-to-text implementation",
+        "Text-to-speech for questions",
+        "Audio recording and playback"
+      ],
+      "deliverable": "Voice-enabled interview mode",
+      "xp": 250
+    },
+    "day12": {
+      "title": "Interview Types & Categories",
+      "lessons": [
+        "Technical interview mode",
+        "Behavioral interview scenarios",
+        "Case study simulations",
+        "Industry-specific questions"
+      ],
+      "deliverable": "Multiple interview type support",
+      "xp": 250
+    },
+    "day13": {
+      "title": "Feedback Generation System",
+      "lessons": [
+        "Comprehensive feedback prompts",
+        "Improvement suggestions",
+        "Example answer generation",
+        "Confidence scoring"
+      ],
+      "deliverable": "Detailed feedback generation",
+      "xp": 300
+    },
+    "day14": {
+      "title": "Week 2 Review & Optimization",
+      "lessons": [
+        "AI response optimization",
+        "Latency reduction strategies",
+        "User flow improvements",
+        "Bug fixes and refinements"
+      ],
+      "deliverable": "Optimized interview simulation system",
+      "xp": 300
+    },
+    "day15": {
+      "title": "Interview Preparation Tools",
+      "lessons": [
+        "Company research integration",
+        "Common questions database",
+        "Practice mode implementation",
+        "Flash cards for key concepts"
+      ],
+      "deliverable": "Comprehensive prep tools",
+      "xp": 250
+    },
+    "day16": {
+      "title": "Performance Analytics Dashboard",
+      "lessons": [
+        "Interview performance metrics",
+        "Progress tracking charts",
+        "Weakness identification",
+        "Improvement trends"
+      ],
+      "deliverable": "Analytics dashboard with insights",
+      "xp": 250
+    },
+    "day17": {
+      "title": "Mock Video Interview",
+      "lessons": [
+        "WebRTC video integration",
+        "Recording functionality",
+        "Body language analysis notes",
+        "Video playback with annotations"
+      ],
+      "deliverable": "Video interview capability",
+      "xp": 300
+    },
+    "day18": {
+      "title": "Industry & Role Customization",
+      "lessons": [
+        "Industry-specific question banks",
+        "Role-based interview patterns",
+        "Seniority level adjustments",
+        "Custom question sets"
+      ],
+      "deliverable": "Customizable interview scenarios",
+      "xp": 250
+    },
+    "day19": {
+      "title": "AI Interviewer Personalities",
+      "lessons": [
+        "Different interviewer styles",
+        "Stress interview simulation",
+        "Panel interview mode",
+        "Personality matching"
+      ],
+      "deliverable": "Multiple AI interviewer personalities",
+      "xp": 250
+    },
+    "day20": {
+      "title": "Resume Integration",
+      "lessons": [
+        "Resume parsing and analysis",
+        "Experience-based questions",
+        "Skills gap identification",
+        "Resume improvement suggestions"
+      ],
+      "deliverable": "Resume-aware interview system",
+      "xp": 250
+    },
+    "day21": {
+      "title": "Week 3 Review & User Testing",
+      "lessons": [
+        "User testing sessions",
+        "Feedback incorporation",
+        "UX improvements",
+        "Performance optimization"
+      ],
+      "deliverable": "User-tested and refined system",
+      "xp": 300
+    },
+    "day22": {
+      "title": "Interview Report Generation",
+      "lessons": [
+        "Comprehensive report templates",
+        "PDF report generation",
+        "Shareable feedback links",
+        "Progress certificates"
+      ],
+      "deliverable": "Professional report generation",
+      "xp": 250
+    },
+    "day23": {
+      "title": "Social & Collaborative Features",
+      "lessons": [
+        "Mock interview scheduling",
+        "Peer review system",
+        "Interview experience sharing",
+        "Community question bank"
+      ],
+      "deliverable": "Social features for practice",
+      "xp": 250
+    },
+    "day24": {
+      "title": "Mobile Responsive Design",
+      "lessons": [
+        "Mobile UI optimization",
+        "Touch-friendly controls",
+        "Mobile interview mode",
+        "Offline capability planning"
+      ],
+      "deliverable": "Mobile-optimized platform",
+      "xp": 200
+    },
+    "day25": {
+      "title": "Advanced AI Features",
+      "lessons": [
+        "Salary negotiation practice",
+        "Cultural fit assessment",
+        "Soft skills evaluation",
+        "Emotional intelligence feedback"
+      ],
+      "deliverable": "Advanced AI coaching features",
+      "xp": 300
+    },
+    "day26": {
+      "title": "Gamification & Engagement",
+      "lessons": [
+        "Achievement system",
+        "Progress badges",
+        "Leaderboards",
+        "Daily challenges"
+      ],
+      "deliverable": "Gamification elements",
+      "xp": 200
+    },
+    "day27": {
+      "title": "API Rate Limiting & Cost Management",
+      "lessons": [
+        "Token usage optimization",
+        "Caching strategies",
+        "Rate limiting implementation",
+        "Cost tracking dashboard"
+      ],
+      "deliverable": "Optimized API usage system",
+      "xp": 250
+    },
+    "day28": {
+      "title": "Security & Privacy",
+      "lessons": [
+        "Data encryption",
+        "Privacy controls",
+        "GDPR compliance",
+        "Secure API key management"
+      ],
+      "deliverable": "Secure and compliant application",
+      "xp": 250
+    },
+    "day29": {
+      "title": "Deployment & Production Setup",
+      "lessons": [
+        "Production build optimization",
+        "Cloud deployment (Vercel/Netlify)",
+        "Environment configuration",
+        "Monitoring setup"
+      ],
+      "deliverable": "Deployed production application",
+      "xp": 400
+    },
+    "day30": {
+      "title": "Launch & Documentation",
+      "lessons": [
+        "User documentation",
+        "Demo video creation",
+        "Marketing website",
+        "Project showcase preparation"
+      ],
+      "deliverable": "Complete AI Job Interview Simulator",
+      "xp": 500
+    }
+  },
+  "total_xp": 7750,
+  "skills_developed": {
+    "ai_integration": 100,
+    "prompt_engineering": 95,
+    "react": 85,
+    "nodejs": 80,
+    "speech_apis": 75,
+    "ux_design": 85,
+    "interview_skills": 90,
+    "deployment": 75
+  }
+}

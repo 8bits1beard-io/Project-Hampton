@@ -25,7 +25,8 @@
       "Bash(timeout:*)",
       "Bash(npm run build:*)",
       "Bash(git reset:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(git branch:*)"
     ],
     "deny": [],
     "ask": []

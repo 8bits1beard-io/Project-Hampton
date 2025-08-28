@@ -379,9 +379,10 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2.5rem;
             margin-top: 2rem;
+            justify-content: center;
         }
 
         .project-card {
@@ -1573,6 +1574,32 @@
                     </div>
                     <button class="btn-hampton" onclick="startProject('automation')">Start Building</button>
                 </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🎫</div>
+                    <h3>IT Support Ticket System</h3>
+                    <p>Create a comprehensive help desk system with ticket submission, automated troubleshooting, knowledge base integration, and real-time status tracking!</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">WebSockets</span>
+                    </div>
+                    <button class="btn-hampton" onclick="startProject('ticketsystem')">Start Building</button>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">💼</div>
+                    <h3>AI Job Interview Simulator</h3>
+                    <p>Master your interview skills with an AI-powered simulator featuring job description parsing, realistic Q&A sessions, and personalized feedback to ace your next interview!</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">OpenAI API</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Speech API</span>
+                    </div>
+                    <button class="btn-hampton" onclick="startProject('interview')">Start Building</button>
+                </div>
             </div>
         </section>
 
@@ -1913,7 +1940,9 @@
             const projectNames = {
                 'dashboard': 'Personal Dashboard App',
                 'blog': 'AI-Powered Blog Platform',
-                'automation': 'Automation Bot Suite'
+                'automation': 'Automation Bot Suite',
+                'ticketsystem': 'IT Support Ticket System',
+                'interview': 'AI Job Interview Simulator'
             };
             
             // Create modal or alert for now

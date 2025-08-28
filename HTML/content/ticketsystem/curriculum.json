@@ -1,0 +1,347 @@
+{
+  "title": "IT Support Ticket System",
+  "description": "Build a comprehensive help desk system with ticket submission, automated troubleshooting, and real-time tracking",
+  "days": {
+    "day1": {
+      "title": "Project Setup & Requirements Analysis",
+      "lessons": [
+        "Understanding IT support workflows",
+        "Setting up React and Express.js environment",
+        "MongoDB database design planning",
+        "Creating project structure and Git repository"
+      ],
+      "deliverable": "Complete project setup with defined requirements",
+      "xp": 150
+    },
+    "day2": {
+      "title": "Database Schema Design",
+      "lessons": [
+        "Ticket data model design",
+        "User roles and permissions structure",
+        "Category and priority systems",
+        "MongoDB schema implementation"
+      ],
+      "deliverable": "Complete MongoDB schemas for tickets and users",
+      "xp": 200
+    },
+    "day3": {
+      "title": "Express.js API Foundation",
+      "lessons": [
+        "RESTful API structure setup",
+        "Authentication middleware",
+        "Basic CRUD endpoints for tickets",
+        "Error handling and validation"
+      ],
+      "deliverable": "Working backend API with basic endpoints",
+      "xp": 250
+    },
+    "day4": {
+      "title": "User Authentication System",
+      "lessons": [
+        "JWT token implementation",
+        "User registration and login",
+        "Role-based access control",
+        "Session management"
+      ],
+      "deliverable": "Secure authentication system with JWT",
+      "xp": 250
+    },
+    "day5": {
+      "title": "React Frontend Setup",
+      "lessons": [
+        "React app initialization",
+        "Component architecture planning",
+        "React Router configuration",
+        "State management setup"
+      ],
+      "deliverable": "React frontend with routing and structure",
+      "xp": 200
+    },
+    "day6": {
+      "title": "Ticket Submission Form",
+      "lessons": [
+        "Multi-step form creation",
+        "Form validation and error handling",
+        "File attachment support",
+        "Category-based dynamic fields"
+      ],
+      "deliverable": "Complete ticket submission interface",
+      "xp": 250
+    },
+    "day7": {
+      "title": "Week 1 Review & Testing",
+      "lessons": [
+        "Unit testing for API endpoints",
+        "Frontend component testing",
+        "Integration testing",
+        "Bug fixes and optimization"
+      ],
+      "deliverable": "Tested foundation with submission system",
+      "xp": 300
+    },
+    "day8": {
+      "title": "Ticket Dashboard & List View",
+      "lessons": [
+        "Ticket list component with pagination",
+        "Filtering and sorting functionality",
+        "Search implementation",
+        "Status indicators and badges"
+      ],
+      "deliverable": "Interactive ticket dashboard",
+      "xp": 250
+    },
+    "day9": {
+      "title": "Ticket Detail View",
+      "lessons": [
+        "Detailed ticket display component",
+        "Comment thread system",
+        "Activity timeline",
+        "File attachment viewer"
+      ],
+      "deliverable": "Complete ticket detail interface",
+      "xp": 250
+    },
+    "day10": {
+      "title": "Agent Dashboard & Assignment",
+      "lessons": [
+        "Agent-specific dashboard views",
+        "Ticket assignment system",
+        "Workload balancing indicators",
+        "Quick actions toolbar"
+      ],
+      "deliverable": "Agent dashboard with assignment features",
+      "xp": 250
+    },
+    "day11": {
+      "title": "Status Updates & Workflow",
+      "lessons": [
+        "Status transition rules",
+        "Automated status changes",
+        "Resolution workflow",
+        "Escalation procedures"
+      ],
+      "deliverable": "Complete ticket lifecycle management",
+      "xp": 250
+    },
+    "day12": {
+      "title": "Real-Time Updates with WebSockets",
+      "lessons": [
+        "Socket.io integration",
+        "Real-time ticket updates",
+        "Live notification system",
+        "Presence indicators"
+      ],
+      "deliverable": "Real-time update functionality",
+      "xp": 300
+    },
+    "day13": {
+      "title": "Automated Troubleshooting Engine",
+      "lessons": [
+        "Decision tree structure for troubleshooting",
+        "Common issue patterns database",
+        "Automated solution suggestions",
+        "Self-service resolution flow"
+      ],
+      "deliverable": "Basic automated troubleshooting system",
+      "xp": 300
+    },
+    "day14": {
+      "title": "Week 2 Review & Performance",
+      "lessons": [
+        "Performance optimization",
+        "Database query optimization",
+        "Caching strategies",
+        "Load testing"
+      ],
+      "deliverable": "Optimized system with real-time features",
+      "xp": 300
+    },
+    "day15": {
+      "title": "Knowledge Base Integration",
+      "lessons": [
+        "Knowledge base article system",
+        "Article categorization and tagging",
+        "Search functionality",
+        "Related article suggestions"
+      ],
+      "deliverable": "Integrated knowledge base",
+      "xp": 250
+    },
+    "day16": {
+      "title": "AI-Powered Ticket Categorization",
+      "lessons": [
+        "Natural language processing basics",
+        "Automatic category assignment",
+        "Priority prediction",
+        "Similar ticket detection"
+      ],
+      "deliverable": "AI categorization and suggestions",
+      "xp": 300
+    },
+    "day17": {
+      "title": "Analytics Dashboard",
+      "lessons": [
+        "Ticket metrics calculation",
+        "Response time analytics",
+        "Resolution rate tracking",
+        "Chart.js visualizations"
+      ],
+      "deliverable": "Analytics dashboard with key metrics",
+      "xp": 250
+    },
+    "day18": {
+      "title": "SLA Management System",
+      "lessons": [
+        "SLA rule configuration",
+        "Timer implementation",
+        "Breach alerts and notifications",
+        "Compliance reporting"
+      ],
+      "deliverable": "SLA tracking and management",
+      "xp": 250
+    },
+    "day19": {
+      "title": "Email Integration",
+      "lessons": [
+        "Email ticket creation",
+        "Automated email responses",
+        "Email notification templates",
+        "Reply-by-email functionality"
+      ],
+      "deliverable": "Complete email integration",
+      "xp": 250
+    },
+    "day20": {
+      "title": "Customer Portal",
+      "lessons": [
+        "Customer self-service portal",
+        "Ticket tracking for customers",
+        "FAQ and help sections",
+        "Customer satisfaction surveys"
+      ],
+      "deliverable": "Customer-facing portal",
+      "xp": 250
+    },
+    "day21": {
+      "title": "Week 3 Review & Security Hardening",
+      "lessons": [
+        "Security audit and fixes",
+        "Input sanitization",
+        "Rate limiting implementation",
+        "OWASP compliance check"
+      ],
+      "deliverable": "Security-hardened application",
+      "xp": 300
+    },
+    "day22": {
+      "title": "Advanced Reporting",
+      "lessons": [
+        "Custom report builder",
+        "Scheduled reports",
+        "Export functionality (PDF/Excel)",
+        "Team performance metrics"
+      ],
+      "deliverable": "Comprehensive reporting system",
+      "xp": 250
+    },
+    "day23": {
+      "title": "Mobile Responsive Design",
+      "lessons": [
+        "Mobile UI optimization",
+        "Touch-friendly interfaces",
+        "Progressive web app features",
+        "Offline capability"
+      ],
+      "deliverable": "Mobile-optimized interface",
+      "xp": 200
+    },
+    "day24": {
+      "title": "Integration APIs",
+      "lessons": [
+        "Third-party integration framework",
+        "Webhook system",
+        "API documentation",
+        "Rate limiting and API keys"
+      ],
+      "deliverable": "External integration capabilities",
+      "xp": 250
+    },
+    "day25": {
+      "title": "Automated Workflows",
+      "lessons": [
+        "Workflow engine design",
+        "Trigger and action system",
+        "Automated ticket routing",
+        "Scheduled tasks"
+      ],
+      "deliverable": "Workflow automation system",
+      "xp": 300
+    },
+    "day26": {
+      "title": "Multi-language Support",
+      "lessons": [
+        "Internationalization (i18n) setup",
+        "Translation management",
+        "Locale detection",
+        "RTL language support"
+      ],
+      "deliverable": "Multi-language capable system",
+      "xp": 200
+    },
+    "day27": {
+      "title": "Performance & Scalability",
+      "lessons": [
+        "Database indexing optimization",
+        "Redis caching implementation",
+        "Load balancing preparation",
+        "Horizontal scaling readiness"
+      ],
+      "deliverable": "Scalable architecture implementation",
+      "xp": 250
+    },
+    "day28": {
+      "title": "Week 4 Final Polish",
+      "lessons": [
+        "UI/UX refinements",
+        "Accessibility improvements",
+        "Final bug fixes",
+        "Documentation completion"
+      ],
+      "deliverable": "Production-ready application",
+      "xp": 300
+    },
+    "day29": {
+      "title": "Deployment & DevOps",
+      "lessons": [
+        "Docker containerization",
+        "CI/CD pipeline setup",
+        "Cloud deployment (AWS/Azure)",
+        "Monitoring and logging setup"
+      ],
+      "deliverable": "Deployed application with CI/CD",
+      "xp": 400
+    },
+    "day30": {
+      "title": "Launch & Project Showcase",
+      "lessons": [
+        "Final deployment verification",
+        "Load testing and optimization",
+        "Project demonstration preparation",
+        "Documentation and handover"
+      ],
+      "deliverable": "Complete IT Support Ticket System",
+      "xp": 500
+    }
+  },
+  "total_xp": 7800,
+  "skills_developed": {
+    "fullstack": 95,
+    "mongodb": 85,
+    "react": 90,
+    "express": 90,
+    "websockets": 80,
+    "ai_integration": 75,
+    "troubleshooting": 100,
+    "deployment": 80
+  }
+}
