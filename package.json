@@ -1,6 +1,6 @@
 {
   "name": "project-hampton",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Learn AI-Assisted Development Through Building Real Projects - Honoring Tom Hampton",
   "private": true,
   "dependencies": {
