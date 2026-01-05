@@ -14,7 +14,7 @@
       "objectives": [
         "Understand what vibe coding means",
         "Learn how AI assistants can accelerate development",
-        "Set up Claude Code or Code Puppy",
+        "Set up Claude Code, Code Puppy, or Codex",
         "Write your first AI-assisted code"
       ],
       "content": {
@@ -154,8 +154,8 @@
             "verified": false
           },
           {
-            "item": "Install Claude Code or Code Puppy",
-            "command": "claude-code --version",
+            "item": "Install Claude Code, Code Puppy, or Codex",
+            "command": "claude-code --version || code-puppy --version || codex --version",
             "verified": false
           },
           {

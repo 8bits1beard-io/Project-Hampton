@@ -27,6 +27,14 @@ const Navigation = ({ theme, toolTheme, onThemeToggle, onToolThemeChange }) => {
           >
             Code Puppy
           </button>
+          <button 
+            className={`navigation__tool-btn ${
+              toolTheme === 'codex' ? 'navigation__tool-btn--active' : ''
+            }`}
+            onClick={() => onToolThemeChange('codex')}
+          >
+            Codex
+          </button>
         </div>
         
         <label className="navigation__theme-toggle">

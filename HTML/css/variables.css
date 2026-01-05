@@ -76,6 +76,15 @@
     --accent-color: #FFD700;
 }
 
+/* Codex Theme */
+[data-tool="codex"] {
+    --primary-color: #1F6F4A;
+    --secondary-color: #6BCB90;
+    --bg-gradient-start: #1F6F4A;
+    --bg-gradient-end: #6BCB90;
+    --accent-color: #FFD700;
+}
+
 /* Dark Mode */
 [data-theme="dark"] {
     --surface-bg: #1a1a2e;
@@ -95,4 +104,9 @@
 [data-theme="dark"][data-tool="code-puppy"] {
     --bg-gradient-start: #0a3d3f;
     --bg-gradient-end: #1a6b5c;
+}
+
+[data-theme="dark"][data-tool="codex"] {
+    --bg-gradient-start: #0b2a1e;
+    --bg-gradient-end: #1f6f4a;
 }

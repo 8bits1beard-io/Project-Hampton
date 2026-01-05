@@ -91,7 +91,12 @@ export class ThemeManager {
     }
 
     updateToolContent(tool) {
-        const toolName = tool === 'claude-code' ? 'Claude Code' : 'Code Puppy';
+        const toolNameMap = {
+            'claude-code': 'Claude Code',
+            'code-puppy': 'Code Puppy',
+            'codex': 'Codex'
+        };
+        const toolName = toolNameMap[tool] || 'Claude Code';
         
         // Update any tool-specific text
         const toolNameElements = document.querySelectorAll('.tool-name');
@@ -104,8 +109,10 @@ export class ThemeManager {
         if (installCommand) {
             if (tool === 'claude-code') {
                 installCommand.textContent = 'npm install -g claude-code';
-            } else {
+            } else if (tool === 'code-puppy') {
                 installCommand.textContent = 'npm install -g code-puppy';
+            } else if (tool === 'codex') {
+                installCommand.textContent = 'codex --version';
             }
         }
     }

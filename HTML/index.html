@@ -50,6 +50,15 @@
             --bg-gradient-end: #32E0C4;
             --accent-color: #FFD700;
         }
+
+        /* Codex Theme */
+        [data-tool="codex"] {
+            --primary-color: #1F6F4A;
+            --secondary-color: #6BCB90;
+            --bg-gradient-start: #1F6F4A;
+            --bg-gradient-end: #6BCB90;
+            --accent-color: #FFD700;
+        }
         
         /* Dark Mode */
         [data-theme="dark"] {
@@ -70,6 +79,11 @@
         [data-theme="dark"][data-tool="code-puppy"] {
             --bg-gradient-start: #0a3d3f;
             --bg-gradient-end: #1a6b5c;
+        }
+
+        [data-theme="dark"][data-tool="codex"] {
+            --bg-gradient-start: #0b2a1e;
+            --bg-gradient-end: #1f6f4a;
         }
         
         /* Smooth transitions for theme changes */
@@ -1382,6 +1396,7 @@
                     <div class="tool-switcher">
                         <button class="tool-option active" data-tool="claude-code">Claude Code</button>
                         <button class="tool-option" data-tool="code-puppy">Code Puppy</button>
+                        <button class="tool-option" data-tool="codex">Codex</button>
                     </div>
                 </li>
                 <li>
@@ -1409,7 +1424,7 @@
                 </div>
                 <div class="value-prop">
                     <span class="prop-icon">🤖</span>
-                    <span class="prop-text">Master Claude Code & prompt engineering</span>
+                    <span class="prop-text">Master Claude Code, Code Puppy, or Codex & prompt engineering</span>
                 </div>
                 <div class="value-prop">
                     <span class="prop-icon">💼</span>
@@ -1924,7 +1939,12 @@
             localStorage.setItem('tool', tool);
             
             // Update any tool-specific text or features
-            const toolName = tool === 'claude-code' ? 'Claude Code' : 'Code Puppy';
+            const toolNameMap = {
+                'claude-code': 'Claude Code',
+                'code-puppy': 'Code Puppy',
+                'codex': 'Codex'
+            };
+            const toolName = toolNameMap[tool] || 'Claude Code';
             console.log(`Switched to ${toolName}`);
             
             // You could update specific text elements here

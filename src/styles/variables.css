@@ -131,6 +131,12 @@
   --color-primary-light: #14FFEC;
 }
 
+/* Codex Theme */
+[data-tool="codex"] {
+  --color-primary: #1F6F4A;
+  --color-primary-light: #6BCB90;
+}
+
 /* === DARK MODE === */
 [data-theme="dark"] {
   --color-text-primary: var(--color-white);
@@ -153,4 +159,9 @@
 [data-theme="dark"][data-tool="puppy"] {
   --color-primary: #14B8A6;
   --color-primary-light: #5EEAD4;
+}
+
+[data-theme="dark"][data-tool="codex"] {
+  --color-primary: #34D399;
+  --color-primary-light: #86EFAC;
 }
